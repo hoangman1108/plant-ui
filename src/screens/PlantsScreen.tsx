@@ -22,15 +22,16 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <Screen>
       <View style={styles.header}>
-        <Ionicons name='reorder-two-outline' size={30} color={colors.light} onPress={() => alert('Menu')} />
+        {/* <Ionicons name='reorder-two-outline' size={30} color={colors.light} onPress={() => alert('Menu')} /> */}
         <View style={styles.headerConntainer}>
-          <AppText style={styles.headerTitle}>Hi Uishopy!</AppText>
-          <Image source={require('../assets/icon.png')} style={styles.headerIcon} />
+          <Image source={require('../assets/logo.png')} style={styles.headerIcon} />
+          {/* <AppText style={styles.headerTitle}>Hi Uishopy!</AppText> */}
+          <View style={styles.headerSearchContainer}>
+            <TextInput placeholder='Search' style={styles.headerSearch} />
+            <Ionicons name='search-outline' size={20} color={colors.medium} />
+          </View>
         </View>
-        <View style={styles.headerSearchContainer}>
-          <TextInput placeholder='Search' style={styles.headerSearch} />
-          <Ionicons name='search-outline' size={20} color={colors.medium} />
-        </View>
+        
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
@@ -101,35 +102,37 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     paddingHorizontal: 20,
-    paddingVertical: 40,
+    paddingVertical: 10,
     zIndex: 1
   },
   headerConntainer: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10
+    // marginTop: 10
   },
   headerIcon: {
     height: 60,
-    width: 60
+    width: 60,
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25
   },
   headerSearch: {
-    flex: 1
+    flex: 1,
+    backgroundColor: colors.white,
+    outlineColor: colors.white
   },
   headerSearchContainer: {
     alignItems: 'center',
-    backgroundColor: colors.light,
+    backgroundColor: colors.white,
     borderRadius: 15,
-    bottom: -25,
     elevation: 2,
     flex: 1,
     flexDirection: 'row',
-    left: 20,
+    left: 10,
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    position: 'absolute',
     width: '100%',
   },
   headerTitle: {

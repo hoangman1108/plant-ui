@@ -6,7 +6,7 @@ import Screen from './Screen';
 const TempScreen: React.FC = () => {
   return (
     <Screen style={styles.container}>
-      <Text>TempScreen</Text>
+      <Text>TempScreen 113</Text>
     </Screen>
   );
 };
