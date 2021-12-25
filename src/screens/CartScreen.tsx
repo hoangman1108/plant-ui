@@ -1,19 +1,11 @@
 import React from 'react';
-import {
-  FlatList,
-  Image,
-  ScrollView,
-  StyleSheet,
-  TextInput,
-  View,
-} from 'react-native';
+import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import Screen from './Screen';
-import AppBadge from '../components/AppBadge';
-import AppCard from '../components/AppCard';
 import AppText from '../components/AppText';
+import HeaderTab from '../components/HeaderTab';
 import colors from '../config/colors';
 import data from '../config/data';
 import { AppNavigatorProps } from '../navigation/types';
@@ -27,9 +19,10 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
 
   return (
     <Screen>
-      <View>
-        <AppText>This is Shipping-Cart Screen</AppText>
+      <View style={{ marginTop: 20, paddingLeft: 16 }}>
+        <HeaderTab>Giỏ Hàng</HeaderTab>
       </View>
+      <AppText>This is Shipping-Cart Screen</AppText>
     </Screen>
   );
 };
