@@ -8,6 +8,9 @@ export type AppNavigatorProps = {
       location: string;
       price: number;
       image: ImageSourcePropType;
+      rating: number;
+      description: string;
+      thumnails: undefined;
     };
   };
 };
