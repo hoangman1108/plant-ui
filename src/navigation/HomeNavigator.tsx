@@ -10,6 +10,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AccountScreen from '../screens/Account';
+import { PlaceOrderScreen } from '../screens';
 
 const Tab = createBottomTabNavigator<HomeNavigatorProps>();
 
@@ -78,9 +79,10 @@ const HomeNavigator = () => (
             style={styles.icon}
           />
         ),
-          title: 'TÀI KHOẢN'
+        title: 'TÀI KHOẢN',
       }}
     />
+    {/* <Tab.Screen name='PlaceOrder' component={PlaceOrderScreen} /> */}
   </Tab.Navigator>
 );
 

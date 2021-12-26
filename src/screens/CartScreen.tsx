@@ -26,6 +26,8 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
   console.log('CartScreen - cartReducer: ', cartItems);
 
   const handleAddToCart = (product, qty) => {
+    if (qty === 0) return;
+    if (qty > product.countInStock) return;
     dispatch(addToCart(product, qty));
   };
 
@@ -167,9 +169,11 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               </AppText>
               <AppText style={[styles.fontNormal, { marginTop: 2 }]}>
                 $
-                {cartItems.reduce(
-                  (acc, item) => acc + item.qty * item.price,
-                  0
+                {numberFormat(
+                  cartItems.reduce(
+                    (acc, item) => acc + item.qty * item.price,
+                    0
+                  )
                 )}{' '}
                 VNĐ
               </AppText>
@@ -180,7 +184,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               activeOpacity={cartItems.length === 0 ? 1 : 0.7}
               onPress={() => {
                 if (cartItems.length !== 0) {
-                  navigation.navigate('Plants');
+                  navigation.navigate('PlaceOrder');
                 } else {
                   return;
                 }

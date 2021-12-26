@@ -13,7 +13,8 @@ export default [
       require('../assets/image_2.png'),
       require('../assets/image_3.png'),
       require('../assets/bottom_img_1.png'),
-    ]
+    ],
+    countInStock: '4',
   },
   {
     id: 1,
@@ -24,12 +25,13 @@ export default [
     description:
       'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
     thumnails: [
-        require('../assets/image_1.png'),
-        require('../assets/image_2.png'),
-        require('../assets/image_3.png'),
-        require('../assets/bottom_img_1.png'),
+      require('../assets/image_1.png'),
+      require('../assets/image_2.png'),
+      require('../assets/image_3.png'),
+      require('../assets/bottom_img_1.png'),
     ],
-    rating: 3
+    rating: 3,
+    countInStock: '2',
   },
   {
     id: 2,
@@ -40,12 +42,13 @@ export default [
     description:
       'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
     thumnails: [
-        require('../assets/image_1.png'),
-        require('../assets/image_2.png'),
-        require('../assets/image_3.png'),
-        require('../assets/bottom_img_1.png'),
+      require('../assets/image_1.png'),
+      require('../assets/image_2.png'),
+      require('../assets/image_3.png'),
+      require('../assets/bottom_img_1.png'),
     ],
-    rating: 2
+    rating: 2,
+    countInStock: '4',
   },
   {
     id: 3,
@@ -56,12 +59,13 @@ export default [
     description:
       'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
     thumnails: [
-        require('../assets/bottom_img_1.png'),
-        require('../assets/image_2.png'),
-        require('../assets/image_3.png'),
-        require('../assets/image_7.png'),
+      require('../assets/bottom_img_1.png'),
+      require('../assets/image_2.png'),
+      require('../assets/image_3.png'),
+      require('../assets/image_7.png'),
     ],
-    rating: 5
+    rating: 5,
+    countInStock: '9',
   },
   {
     id: 4,
@@ -72,12 +76,13 @@ export default [
     description:
       'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
     thumnails: [
-        require('../assets/bottom_img_2.png'),
-        require('../assets/image_2.png'),
-        require('../assets/image_3.png'),
-        require('../assets/image_7.png'),
+      require('../assets/bottom_img_2.png'),
+      require('../assets/image_2.png'),
+      require('../assets/image_3.png'),
+      require('../assets/image_7.png'),
     ],
-    rating: 4
+    rating: 4,
+    countInStock: '12',
   },
   {
     id: 5,
@@ -95,7 +100,7 @@ export default [
       require('../assets/image_2.png'),
       require('../assets/image_3.png'),
       require('../assets/image_7.png'),
-    ]
+    ],
   },
   {
     id: 6,
@@ -113,7 +118,7 @@ export default [
       require('../assets/image_2.png'),
       require('../assets/image_3.png'),
       require('../assets/image_7.png'),
-    ]
+    ],
   },
   {
     id: 7,
@@ -131,7 +136,7 @@ export default [
       require('../assets/image_2.png'),
       require('../assets/image_3.png'),
       require('../assets/bonsai_2.jpg'),
-    ]
+    ],
   },
   {
     id: 8,
@@ -149,7 +154,7 @@ export default [
       require('../assets/image_2.png'),
       require('../assets/image_3.png'),
       require('../assets/bonsai_2.jpg'),
-    ]
+    ],
   },
   {
     id: 9,
@@ -166,7 +171,7 @@ export default [
       require('../assets/image_9.jpg'),
       require('../assets/image_2.png'),
       require('../assets/image_3.png'),
-      require('../assets/bonsai_2.jpg')
-    ]
-  }
+      require('../assets/bonsai_2.jpg'),
+    ],
+  },
 ];

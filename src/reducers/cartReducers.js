@@ -6,7 +6,7 @@ import {
 } from '../constants/cartConstants';
 
 export const cartReducer = (
-  state = { cartItems: [], shippingAddress: {} },
+  state = { cartItems: [], shippingAddress: '' },
   action
 ) => {
   //----------------------------------cartItems: {...productInfo, product: objectID, quantity}[]
@@ -55,7 +55,7 @@ export const cartReducer = (
     case CART_INFO_RESET:
       return {
         cartItems: [],
-        shippingAddress: {},
+        shippingAddress: '',
       };
 
     default:
