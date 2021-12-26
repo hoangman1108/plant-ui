@@ -9,6 +9,7 @@ import { PlantsScreen, TempScreen, CartScreen } from '../screens';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import AccountScreen from '../screens/Account';
 
 const Tab = createBottomTabNavigator<HomeNavigatorProps>();
 
@@ -67,7 +68,7 @@ const HomeNavigator = () => (
     />
     <Tab.Screen
       name='Account'
-      component={TempScreen}
+      component={AccountScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
           <MaterialCommunityIcons
@@ -77,6 +78,7 @@ const HomeNavigator = () => (
             style={styles.icon}
           />
         ),
+          title: 'TÀI KHOẢN'
       }}
     />
   </Tab.Navigator>

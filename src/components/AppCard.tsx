@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5
   },
   image: {
-    resizeMode: 'scale',
+    resizeMode: 'contain',
     height: 180,
     width: '100%'
   },

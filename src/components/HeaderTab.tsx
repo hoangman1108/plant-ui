@@ -23,6 +23,17 @@ export default function HeaderTab(props: any) {
       >
         {props.children}
       </AppText>
+
+        {props.rightIconName ? 
+              <FontAwesome 
+              style={{ position: 'absolute', right: 20 }} 
+              name={props.rightIconName} 
+              size={28} 
+              color='rgba(0,0,0,.69)'
+              onPress={() => props.navigation.goBack()}
+            /> : null
+        }
+
     </View>
   );
 }
