@@ -6,13 +6,18 @@ import { Ionicons } from '@expo/vector-icons';
 import { HomeNavigatorProps } from './types';
 import colors from '../config/colors';
 import { PlantsScreen, TempScreen, CartScreen } from '../screens';
+import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator<HomeNavigatorProps>();
 
 const HomeNavigator = () => (
   <Tab.Navigator
-    initialRouteName='Cart'
-    screenOptions={{ tabBarLabel: '' }}
+    initialRouteName='Plants'
+    screenOptions={{
+      tabBarLabel: '',
+    }}
     tabBarOptions={{
       activeTintColor: colors.primary,
       inactiveTintColor: colors.medium,
@@ -23,26 +28,36 @@ const HomeNavigator = () => (
       component={PlantsScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
-          <Ionicons name='leaf' color={color} size={size} style={styles.icon} />
+          <FontAwesome5
+            name='home'
+            color={color}
+            size={size}
+            style={styles.icon}
+          />
         ),
       }}
     />
     <Tab.Screen
-      name='Cart'
-      component={CartScreen}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <Ionicons name='leaf' color={color} size={size} style={styles.icon} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name='Favourites'
+      name='List Category'
       component={TempScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
-          <Ionicons
-            name='heart'
+          <FontAwesome
+            name='list-ul'
+            color={color}
+            size={size}
+            style={styles.icon}
+          />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name='Shopping Cart'
+      component={CartScreen}
+      options={{
+        tabBarIcon: ({ size, color }) => (
+          <FontAwesome
+            name='shopping-cart'
             color={color}
             size={size}
             style={styles.icon}
@@ -55,8 +70,8 @@ const HomeNavigator = () => (
       component={TempScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
-          <Ionicons
-            name='person'
+          <MaterialCommunityIcons
+            name='account'
             color={color}
             size={size}
             style={styles.icon}

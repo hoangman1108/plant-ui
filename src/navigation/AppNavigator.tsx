@@ -10,7 +10,7 @@ const Stack = createStackNavigator<AppNavigatorProps>();
 
 const AppNavigator = () => (
   <Stack.Navigator
-    initialRouteName='Cart'
+    initialRouteName='Home'
     screenOptions={{ headerShown: false }}
   >
     <Stack.Screen name='Home' component={HomeNavigator} />
