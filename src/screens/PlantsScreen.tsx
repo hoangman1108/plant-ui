@@ -77,11 +77,12 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
           style={styles.gridProducts}
           data={productsData}
           numColumns={2}
+          contentContainerStyle={{ width: '100%' }}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => {
             const { name, location, price, image } = item;
             return (
-              <AppCard 
+              <AppCard
                 name={name} 
                 location={location} 
                 price={price} 
@@ -166,7 +167,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    width: '100vw'
   },
   gridProductItem: {
     flex: 1

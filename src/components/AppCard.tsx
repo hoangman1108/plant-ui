@@ -4,6 +4,7 @@ import { Dimensions, GestureResponderEvent, Image, ImageSourcePropType, StyleShe
 import AppText from './AppText';
 import colors from '../config/colors';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const width = Dimensions.get('window').width * 0.4;
 console.log('width: ', width);
@@ -27,6 +28,15 @@ const AppCard: React.FC<Props> = ({ name, location, price, image, widthChange = 
       <View>
         <AppText style={[styles.text]}>{price} VNĐ</AppText>
       </View>
+      <View>
+        <AppText style={styles.addOrder}>
+          <FontAwesome
+            name='cart-plus'
+            color={'black'}
+            size={20}
+          />
+          </AppText>
+      </View>
       {/* <View style={styles.details}>
         <AppText style={[styles.text, styles.location]}>{location}
         </AppText>
@@ -47,7 +57,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 3,
     margin: 10,
-    width: '64.5%',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -55,6 +64,9 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
+    flexGrow: 1,
+    flexBasis: '50%',
+    flexShrink: 1
   },
   details: {
     alignItems: 'center',
@@ -81,6 +93,13 @@ const styles = StyleSheet.create({
   price: {
     color: colors.primary
   },
+  addOrder: {
+    backgroundColor: colors.grey,
+    borderRadius: 15,
+    paddingHorizontal: 5,
+    paddingVertical: 5,
+    textAlign: 'center'
+  }
 });
 
 export default AppCard;

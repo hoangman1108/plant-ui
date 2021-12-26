@@ -4,5 +4,6 @@ export default {
   light: '#f8f4f4',
   medium: '#9f9f9f',
   white: '#fff',
-  active: 'rgb(46, 139, 87)'
+  active: 'rgb(46, 139, 87)',
+  grey: '#80808042'
 };
