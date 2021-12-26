@@ -6,6 +6,7 @@ import colors from '../config/colors';
 import { Ionicons } from '@expo/vector-icons';
 
 const width = Dimensions.get('window').width * 0.4;
+console.log('width: ', width);
 
 interface Props {
   name: string
@@ -18,13 +19,13 @@ interface Props {
 
 const AppCard: React.FC<Props> = ({ name, location, price, image, widthChange = 1, onPress }) => (
   <TouchableOpacity style={styles.conatiner} onPress={onPress}>
-    <Image source={image} style={[styles.image, { width: width * widthChange }]} />
+    <Image source={image} style={styles.image} />
     <View style={styles.detailsContainer}>
       <View style={styles.details}>
         <AppText style={styles.text}>{name}</AppText>
       </View>
       <View>
-        <AppText style={[styles.text, styles.price]}>${price}</AppText>
+        <AppText style={[styles.text]}>{price} VNĐ</AppText>
       </View>
       {/* <View style={styles.details}>
         <AppText style={[styles.text, styles.location]}>{location}
@@ -45,7 +46,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 10,
     elevation: 3,
-    margin: 10
+    margin: 10,
+    width: '64.5%',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
   },
   details: {
     alignItems: 'center',
@@ -53,12 +62,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   detailsContainer: {
-    padding: 10
+    paddingVertical: 10,
+    paddingHorizontal: 5
   },
   image: {
-    resizeMode: 'stretch',
-    height: 160,
-    width
+    resizeMode: 'scale',
+    height: 180,
+    width: '100%'
   },
   location: {
     color: colors.primary,
@@ -67,7 +77,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     textTransform: 'uppercase',
-    opacity: 0.5
   },
   price: {
     color: colors.primary

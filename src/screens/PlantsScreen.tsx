@@ -17,11 +17,13 @@ interface Props {
 }
 
 const PlantsScreen: React.FC<Props> = ({ navigation }) => {
-  const recomendedData = data.slice(0, 6);
+  const recomendedData = data;
   const categoriesData = categories;
+  let defaultCate = 1;
 
   const onSelectedCategory = () => {
-    console.log();
+    console.log("click category");
+    
   }
  
   return (
@@ -68,11 +70,14 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
             const { id, name } = item;
             return (
               <TouchableOpacity
-                style={styles.gridProductItem}
                 onPress={onSelectedCategory}
               >
-                <View style={styles.itemCategory}>
-                  <AppText style={styles.contentCategory}>{name}</AppText>
+                <View style={[styles.itemCategory, {
+                  backgroundColor: defaultCate == id ? colors.active : colors.white
+                }]}>
+                  <AppText style={[styles.contentCategory, {
+                    color: defaultCate == id ? colors.white : colors.dark
+                  }]}>{name}</AppText>
                 </View>
               </TouchableOpacity>
               )
@@ -191,13 +196,16 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   gridProducts: {
-    paddingHorizontal: 10,
     display: 'flex',
     flexWrap: 'wrap',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingHorizontal: 10
   },
   gridProductItem: {
     flex: 1
+  },
+  active: {
+    backgroundColor: colors.active
   }
 });
 
