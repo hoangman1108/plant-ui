@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Image, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { FlatList, Image, ScrollView, StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -9,6 +9,7 @@ import AppCard from '../components/AppCard';
 import AppText from '../components/AppText';
 import colors from '../config/colors';
 import data from '../config/data';
+import categories from '../config/categories';
 import { AppNavigatorProps } from '../navigation/types';
 
 interface Props {
@@ -16,9 +17,13 @@ interface Props {
 }
 
 const PlantsScreen: React.FC<Props> = ({ navigation }) => {
-  const recomendedData = data.slice(0, 3);
-  const featuredData = data.slice(3);
+  const recomendedData = data.slice(0, 6);
+  const categoriesData = categories;
 
+  const onSelectedCategory = () => {
+    console.log();
+  }
+ 
   return (
     <Screen>
       <View style={styles.header}>
@@ -31,10 +36,9 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
             <Ionicons name='search-outline' size={20} color={colors.medium} />
           </View>
         </View>
-        
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.content}>
+        {/* <View style={styles.content}>
           <AppText style={styles.contentTitle}>Recomended</AppText>
           <AppBadge title='More'/>
         </View>
@@ -54,12 +58,48 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
                 onPress={() => navigation.navigate('PlantDetail', { item })} 
               />)
           }}
+        /> */}
+        <FlatList 
+          style={{ paddingHorizontal: 10, paddingVertical: 10 }}
+          horizontal={true}
+          data={categoriesData}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => {
+            const { id, name } = item;
+            return (
+              <TouchableOpacity
+                style={styles.gridProductItem}
+                onPress={onSelectedCategory}
+              >
+                <View style={styles.itemCategory}>
+                  <AppText style={styles.contentCategory}>{name}</AppText>
+                </View>
+              </TouchableOpacity>
+              )
+          }}
         />
-        <View style={styles.content}>
+        <FlatList 
+          style={styles.gridProducts}
+          data={recomendedData}
+          numColumns={2}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => {
+            const { name, location, price, image } = item;
+            return (
+              <AppCard 
+                name={name} 
+                location={location} 
+                price={price} 
+                image={image}
+                onPress={() => navigation.navigate('PlantDetail', { item })} 
+              />)
+          }}
+        />
+        {/* <View style={styles.content}>
           <AppText style={styles.contentTitle}>Featured Plants</AppText>
           <AppBadge title='More'/>
-        </View>
-        <FlatList 
+        </View> */}
+        {/* <FlatList 
           style={{ paddingHorizontal: 10 }}
           horizontal={true}
           data={featuredData}
@@ -77,7 +117,7 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
               />
             )
           }}
-        />
+        /> */}
       </ScrollView>
     </Screen>
   );
@@ -140,6 +180,25 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
   },
+  itemCategory: {
+    backgroundColor: colors.white,
+    borderRadius: 15,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    marginRight: 15
+  },
+  contentCategory: {
+    fontSize: 16
+  },
+  gridProducts: {
+    paddingHorizontal: 10,
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row'
+  },
+  gridProductItem: {
+    flex: 1
+  }
 });
 
 export default PlantsScreen;

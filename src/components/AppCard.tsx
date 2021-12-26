@@ -22,9 +22,11 @@ const AppCard: React.FC<Props> = ({ name, location, price, image, widthChange = 
     <View style={styles.detailsContainer}>
       <View style={styles.details}>
         <AppText style={styles.text}>{name}</AppText>
+      </View>
+      <View>
         <AppText style={[styles.text, styles.price]}>${price}</AppText>
       </View>
-      <View style={styles.details}>
+      {/* <View style={styles.details}>
         <AppText style={[styles.text, styles.location]}>{location}
         </AppText>
         <AppText><Ionicons
@@ -32,7 +34,7 @@ const AppCard: React.FC<Props> = ({ name, location, price, image, widthChange = 
           color={'red'}
           size={20}
         /></AppText>
-      </View>
+      </View> */}
 
     </View>
   </TouchableOpacity>
