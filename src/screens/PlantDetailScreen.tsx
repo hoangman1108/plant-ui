@@ -10,6 +10,8 @@ import AppCarousel from '../components/AppCarousel';
 import AppText from '../components/AppText';
 import colors from '../config/colors';
 import { AppNavigatorProps } from '../navigation/types';
+import data from '../config/data';
+import HeaderTab from '../components/HeaderTab';
 
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps, 'PlantDetail'>
@@ -17,24 +19,14 @@ interface Props {
 }
 
 const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
-  const { name, location, price, image } = route.params.item;
-  
+  const { name, location, price, image } = data[0];
+  console.log(data[0]);
   return (
     <Screen>
-      <View style={styles.navigation}>
-        <Ionicons name='arrow-back-outline' style={styles.navigationIcon} onPress={() => navigation.goBack()} />
+      <View style={{ marginTop: 20 }}>
+        <HeaderTab>Chi tiết sản phẩm</HeaderTab>
       </View>
       <View style={styles.header}>
-        <View>
-          <Ionicons name='sunny-outline' size={25} color={colors.primary} style={styles.icon} />
-          <FontAwesome5 name='temperature-high' size={25} color={colors.primary} style={styles.icon} />
-          <Ionicons name='water-outline' size={25} color={colors.primary} style={styles.icon} />
-          <Feather name='wind' size={25} color={colors.primary} style={styles.icon} />
-        </View>
-        <AppCarousel style={styles.carousel}>
-          <Image source={image} style={styles.image} />
-          <Image source={require('../assets/image_4.png')} style={styles.image} />
-        </AppCarousel>
       </View>
       <View style={styles.content}>
         <View style={styles.contentTitle}>

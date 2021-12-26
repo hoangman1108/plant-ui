@@ -23,7 +23,7 @@ const CartScreen: React.FC<Props> = (props) => {
 
   return (
     <Screen>
-      <View style={{ marginTop: 20, paddingLeft: 22 }}>
+      <View style={{ marginTop: 20 }}>
         <HeaderTab>Giỏ Hàng</HeaderTab>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>

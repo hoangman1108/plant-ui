@@ -5,6 +5,8 @@ export default [
     location: 'Russia',
     price: 1999000,
     image: require('../assets/image_1.png'),
+    description:
+      'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
   },
   {
     id: 1,
@@ -12,6 +14,8 @@ export default [
     location: 'Russia',
     price: 2999000,
     image: require('../assets/image_2.png'),
+    description:
+      'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
   },
   {
     id: 2,
@@ -19,6 +23,8 @@ export default [
     location: 'Russia',
     price: 2499000,
     image: require('../assets/image_3.png'),
+    description:
+      'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
   },
   {
     id: 3,
@@ -26,6 +32,8 @@ export default [
     location: 'Russia',
     price: 3000000,
     image: require('../assets/bottom_img_1.png'),
+    description:
+      'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
   },
   {
     id: 4,
@@ -33,6 +41,8 @@ export default [
     location: 'Russia',
     price: 6999000,
     image: require('../assets/bottom_img_2.png'),
+    description:
+      'Hoa giấy mọc thành một nhóm gồm 3 hoa và lá bắc, hình thành cụm ở phần cuối của nhánh. Lá bắc xếp hình tam giác, cách chăm sóc cây hoa giấy thuôn dài/trứng và nhọn đầu dài khoảng 3 – 5 cm. Bông hoa giấy thật sự nhỏ, mỗi cái gắn vào một lá bắc, hình ống phồng ở phần giữa.',
   },
   {
     id: 5,
