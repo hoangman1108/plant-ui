@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, Image, ScrollView, StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import Screen from './Screen';
-import AppBadge from '../components/AppBadge';
+// import AppBadge from '../components/AppBadge';
 import AppCard from '../components/AppCard';
 import AppText from '../components/AppText';
 import colors from '../config/colors';
@@ -17,13 +17,24 @@ interface Props {
 }
 
 const PlantsScreen: React.FC<Props> = ({ navigation }) => {
-  const recomendedData = data;
+  const [productsData, setProductsData] = useState(data);
   const categoriesData = categories;
-  let defaultCate = 1;
+  const [defaultCate, setDefaultCate] = useState(1);
+  
+  const onSelectedCategory = (id) => {
+    setDefaultCate(id);
+    const newData = shuffle(data);
+    setProductsData(newData);
+  }
 
-  const onSelectedCategory = () => {
-    console.log("click category");
-    
+  const shuffle = (array) => {
+    let arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  
+    return arr;
   }
  
   return (
@@ -40,27 +51,6 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
         </View>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* <View style={styles.content}>
-          <AppText style={styles.contentTitle}>Recomended</AppText>
-          <AppBadge title='More'/>
-        </View>
-        <FlatList 
-          style={{ paddingHorizontal: 10 }}
-          horizontal={true}
-          data={recomendedData}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => {
-            const { name, location, price, image } = item;
-            return (
-              <AppCard 
-                name={name} 
-                location={location} 
-                price={price} 
-                image={image}
-                onPress={() => navigation.navigate('PlantDetail', { item })} 
-              />)
-          }}
-        /> */}
         <FlatList 
           style={{ paddingHorizontal: 10, paddingVertical: 10 }}
           horizontal={true}
@@ -70,7 +60,7 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
             const { id, name } = item;
             return (
               <TouchableOpacity
-                onPress={onSelectedCategory}
+                onPress={onSelectedCategory.bind(this, id)}
               >
                 <View style={[styles.itemCategory, {
                   backgroundColor: defaultCate == id ? colors.active : colors.white
@@ -85,7 +75,7 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
         />
         <FlatList 
           style={styles.gridProducts}
-          data={recomendedData}
+          data={productsData}
           numColumns={2}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => {
@@ -100,29 +90,6 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
               />)
           }}
         />
-        {/* <View style={styles.content}>
-          <AppText style={styles.contentTitle}>Featured Plants</AppText>
-          <AppBadge title='More'/>
-        </View> */}
-        {/* <FlatList 
-          style={{ paddingHorizontal: 10 }}
-          horizontal={true}
-          data={featuredData}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => {
-            const { name, location, price, image } = item;
-            return (
-              <AppCard 
-                name={name} 
-                location={location} 
-                price={price} 
-                image={image} 
-                widthChange={1.75} 
-                onPress={() => navigation.navigate('PlantDetail', { item })} 
-              />
-            )
-          }}
-        /> */}
       </ScrollView>
     </Screen>
   );
