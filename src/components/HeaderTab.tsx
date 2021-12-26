@@ -12,7 +12,7 @@ export default function HeaderTab(props: any) {
           fontSize: 28,
           fontWeight: 'bold',
           textTransform: 'uppercase',
-          marginLeft: 70,
+          marginLeft: 80,
         }}
       >
         {props.children}
