@@ -5,5 +5,6 @@ export default {
   medium: '#9f9f9f',
   white: '#fff',
   active: 'rgb(46, 139, 87)',
-  grey: 'rgb(128 128 128 / 68%)'
+  grey: 'rgb(128 128 128 / 68%)',
+  greyV2: '#80808054'
 };

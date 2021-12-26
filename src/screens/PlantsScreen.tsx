@@ -87,7 +87,8 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
                 location={location} 
                 price={price} 
                 image={image}
-                onPress={() => navigation.navigate('PlantDetail', { item })} 
+                onPress={() => navigation.navigate('PlantDetail', { item })}
+                onRedirectCart={() => navigation.navigate('Cart')}
               />)
           }}
         />

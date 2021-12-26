@@ -16,9 +16,10 @@ interface Props {
   image: ImageSourcePropType
   widthChange?: number
   onPress?: ((event: GestureResponderEvent) => void) | undefined
+  onRedirectCart?: ((event: GestureResponderEvent) => void) | undefined
 }
 
-const AppCard: React.FC<Props> = ({ name, location, price, image, widthChange = 1, onPress }) => (
+const AppCard: React.FC<Props> = ({ name, location, price, image, widthChange = 1, onRedirectCart, onPress }) => (
   <TouchableOpacity style={styles.conatiner} onPress={onPress}>
     <Image source={image} style={styles.image} />
     <View style={styles.detailsContainer}>
@@ -29,7 +30,7 @@ const AppCard: React.FC<Props> = ({ name, location, price, image, widthChange = 
         <AppText style={[styles.text]}>{price} VNĐ</AppText>
       </View>
       <View>
-        <AppText style={styles.addOrder}>
+        <AppText style={styles.addOrder} onPress={onRedirectCart}> 
           <FontAwesome
             name='cart-plus'
             color={'black'}
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     color: colors.primary
   },
   addOrder: {
-    backgroundColor: colors.grey,
+    backgroundColor: colors.greyV2,
     borderRadius: 15,
     paddingHorizontal: 5,
     paddingVertical: 5,
