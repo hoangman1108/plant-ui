@@ -4,13 +4,17 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import AppNavigator from './src/navigation/AppNavigator';
+import { Provider as ReduxProvider } from 'react-redux';
+import store from './src/reduxStore';
 
 const App: React.FC = () => {
   return (
-    <NavigationContainer>
-      <AppNavigator />
-      <StatusBar style='light' />
-    </NavigationContainer>    
+    <ReduxProvider store={store}>
+      <NavigationContainer>
+        <AppNavigator />
+        <StatusBar style='light' />
+      </NavigationContainer>
+    </ReduxProvider>
   );
 };
 
