@@ -12,7 +12,7 @@ export const cartReducer = (
   //----------------------------------cartItems: {...productInfo, product: objectID, quantity}[]
   switch (action.type) {
     case CART_ADD_ITEM:
-      // item that we wanna add to cart
+      // item that we want add to cart
       const itemAdd = action.payload;
       // return item is existing in cart / or not
       const itemExist = state.cartItems.find(
@@ -42,7 +42,7 @@ export const cartReducer = (
       return {
         ...state,
         cartItems: state.cartItems.filter((el, i, arr) => {
-          return el.productId !== action.payload.id;
+          return el.productId !== action.payload.productId;
         }),
       };
 

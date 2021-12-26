@@ -24,12 +24,12 @@ export const addToCart = (product, qty) => async (dispatch, getState) => {
   );
 };
 
-export const removeFromCart = (id) => (dispatch, getState) => {
+export const removeFromCart = (productId) => (dispatch, getState) => {
   // 1. dispatch action (with payload info) to cartReducers => delete product from state.cart.cartItems
   dispatch({
     type: CART_REMOVE_ITEM,
     payload: {
-      id,
+      productId,
     },
   });
 
@@ -51,11 +51,11 @@ export const saveShippingAddress = (data) => (dispatch) => {
   localStorage.setItem('shippingAddress', JSON.stringify(data));
 };
 
-export const savePaymentMethod = (paymentMethod) => (dispatch) => {
-  dispatch({
-    type: CART_SAVE_PAYMENT_METHOD,
-    payload: paymentMethod,
-  });
+// export const savePaymentMethod = (paymentMethod) => (dispatch) => {
+//   dispatch({
+//     type: CART_SAVE_PAYMENT_METHOD,
+//     payload: paymentMethod,
+//   });
 
-  localStorage.setItem('paymentMethod', JSON.stringify(paymentMethod));
-};
+//   localStorage.setItem('paymentMethod', JSON.stringify(paymentMethod));
+// };
