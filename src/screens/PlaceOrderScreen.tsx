@@ -18,12 +18,12 @@ interface Props {
   navigation: StackNavigationProp<AppNavigatorProps>;
 }
 
-const CartScreen: React.FC<Props> = ({ navigation }) => {
+const PlaceOrderScreen: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const cartReducer = useSelector((state: any) => state.cartReducer);
-  const { cartItems } = cartReducer;
-  console.log('CartScreen - cartReducer: ', cartItems);
+  const { cartItems, shippingAddress } = cartReducer;
+  console.log('PlaceOrderScreen - cartReducer: ', cartReducer);
 
   const handleAddToCart = (product, qty) => {
     if (qty === 0) return;
@@ -39,7 +39,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <Screen>
       <View style={{ marginTop: 20 }}>
-        <HeaderTab navigation={navigation}>Giỏ Hàng</HeaderTab>
+        <HeaderTab navigation={navigation}>ĐẶT HÀNG</HeaderTab>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -63,6 +63,18 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
           </View>
         ) : (
           <View style={{ paddingHorizontal: 22 }}>
+            <AppText
+              style={{ fontWeight: 'bold', fontSize: 22, marginBottom: 6 }}
+            >
+              GIAO HÀNG
+            </AppText>
+            <AppText>Địa chỉ: {shippingAddress}</AppText>
+            <Divider width={2} style={{ marginVertical: 14 }}></Divider>
+            <AppText
+              style={{ fontWeight: 'bold', fontSize: 22, marginBottom: 8 }}
+            >
+              DANH SÁCH SẢN PHẨM
+            </AppText>
             {cartItems.map((cartItem: any) => {
               return (
                 <View key={cartItem.productId}>
@@ -81,72 +93,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                       {numberFormat(cartItem.qty * cartItem.price)} VNĐ
                     </AppText>
                   </View>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: 5,
-                      backgroundColor: '#rgba(210, 235, 245, 0.5)',
-                      borderColor: 'c0e3f2',
-                      marginBottom: 16,
-                    }}
-                  >
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <View
-                        style={{
-                          paddingRight: 12,
-                        }}
-                      >
-                        <TouchableOpacity
-                          onPress={() =>
-                            handleAddToCart(cartItem, cartItem.qty - 1)
-                          }
-                        >
-                          <AntDesign
-                            name='minussquareo'
-                            size={32}
-                            color='#rgba(12, 12, 12, 0.8)'
-                          />
-                        </TouchableOpacity>
-                      </View>
-                      <View
-                        style={{
-                          paddingRight: 12,
-                        }}
-                      >
-                        <AppText>{cartItem.qty}</AppText>
-                      </View>
-                      <View>
-                        <TouchableOpacity
-                          onPress={() =>
-                            handleAddToCart(cartItem, cartItem.qty + 1)
-                          }
-                        >
-                          <AntDesign
-                            name='plussquareo'
-                            size={32}
-                            color='#rgba(12, 12, 12, 0.8)'
-                          />
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                    <View>
-                      <TouchableOpacity
-                        onPress={() =>
-                          removeFromCartHandler(cartItem.productId)
-                        }
-                      >
-                        <AntDesign name='delete' size={32} color='#dc3545' />
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                  <View style={{ marginBottom: 16 }}>
+                  <View style={{ marginVertical: 10 }}>
                     <Divider width={2}></Divider>
                   </View>
                 </View>
@@ -163,28 +110,45 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                 paddingBottom: 5,
               }}
             >
-              <AppText style={styles.fontNormal}>
-                Tổng Cộng ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                Sản Phẩm
-              </AppText>
-              <AppText style={[styles.fontNormal, { marginTop: 2 }]}>
-                $
-                {numberFormat(
-                  cartItems.reduce(
-                    (acc, item) => acc + item.qty * item.price,
-                    0
-                  )
-                )}{' '}
-                VNĐ
+              <AppText style={[styles.fontNormal, { fontWeight: 'bold' }]}>
+                THÔNG TIN ĐƠN HÀNG
               </AppText>
             </View>
+          </View>
+          <View style={styles.contenBoxV3}>
+            <AppText>Sản Phẩm</AppText>
+            <AppText>
+              $
+              {numberFormat(
+                cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)
+              )}{' '}
+              VNĐ
+            </AppText>
+          </View>
+          <View style={styles.contenBoxV3}>
+            <AppText>Phí Ship</AppText>
+            <AppText>$0.00 VNĐ</AppText>
+          </View>
+          <View style={styles.contenBoxV3}>
+            <AppText>Thuế</AppText>
+            <AppText>$0.00 VNĐ</AppText>
+          </View>
+          <View style={styles.contenBoxV3}>
+            <AppText>Tổng Cộng</AppText>
+            <AppText>
+              $
+              {numberFormat(
+                cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)
+              )}{' '}
+              VNĐ
+            </AppText>
           </View>
           <View style={styles.contentBoxV2}>
             <TouchableOpacity
               activeOpacity={cartItems.length === 0 ? 1 : 0.7}
               onPress={() => {
                 if (cartItems.length !== 0) {
-                  navigation.navigate('PlaceOrder');
+                  navigation.navigate('Cart');
                 } else {
                   return;
                 }
@@ -203,7 +167,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                   textAlign: 'center',
                 }}
               >
-                TIẾN HÀNH ĐẶT HÀNG
+                ĐẶT HÀNG
               </AppText>
             </TouchableOpacity>
           </View>
@@ -227,6 +191,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
+  contenBoxV3: {
+    flexDirection: 'row',
+    border: `1px solid ${colors.grey}`,
+    borderTopWidth: '0px',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   fontSmall: {
     fontSize: 18,
   },
@@ -235,4 +208,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CartScreen;
+export default PlaceOrderScreen;

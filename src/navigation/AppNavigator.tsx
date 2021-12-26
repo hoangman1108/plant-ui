@@ -3,8 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeNavigator from './HomeNavigator';
 import { AppNavigatorProps } from './types';
-import { PlantDetailScreen } from '../screens';
-import { CartScreen } from '../screens';
+import { PlantDetailScreen, CartScreen, PlaceOrderScreen } from '../screens';
 
 const Stack = createStackNavigator<AppNavigatorProps>();
 
@@ -22,6 +21,7 @@ const AppNavigator = () => (
         headerTransparent: true,
       }}
     />
+    <Stack.Screen name='PlaceOrder' component={PlaceOrderScreen} />
   </Stack.Navigator>
 );
 

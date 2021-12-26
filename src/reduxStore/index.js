@@ -69,9 +69,12 @@ const cartItemsLocalStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : [];
 
+const shippingAddressTest = '232 Hoà Hưng, P.13, Q.10, TP.HCM';
+localStorage.setItem('shippingAddress', shippingAddressTest);
+
 const shippingAdressLocalStorage = localStorage.getItem('shippingAddress')
-  ? JSON.parse(localStorage.getItem('shippingAddress'))
-  : {};
+  ? localStorage.getItem('shippingAddress')
+  : '';
 
 const initialState = {
   cartReducer: {

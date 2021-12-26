@@ -48,7 +48,7 @@ export const saveShippingAddress = (data) => (dispatch) => {
     },
   });
 
-  localStorage.setItem('shippingAddress', JSON.stringify(data));
+  localStorage.setItem('shippingAddress', data);
 };
 
 // export const savePaymentMethod = (paymentMethod) => (dispatch) => {
