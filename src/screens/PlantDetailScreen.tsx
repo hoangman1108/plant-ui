@@ -115,7 +115,9 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
               paddingVertical: 20,
               borderRadius: 30,
               textAlign: 'center'
-            }}>
+            }}
+            onPress={() => navigation.navigate('Cart')}
+            >
               ĐƯA VÀO GIỎ HÀNG
             </AppText>
         </View>

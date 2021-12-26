@@ -14,7 +14,7 @@ interface Props {
   navigation: StackNavigationProp<AppNavigatorProps>;
 }
 
-const CartScreen: React.FC<Props> = (props) => {
+const CartScreen: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const cartReducer = useSelector((state: any) => state.cartReducer);
@@ -24,7 +24,7 @@ const CartScreen: React.FC<Props> = (props) => {
   return (
     <Screen>
       <View style={{ marginTop: 20 }}>
-        <HeaderTab>Giỏ Hàng</HeaderTab>
+        <HeaderTab navigation={navigation}>Giỏ Hàng</HeaderTab>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {cartItems.length === 0 ? (
