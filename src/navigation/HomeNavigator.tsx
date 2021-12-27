@@ -1,24 +1,24 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 
-import { HomeNavigatorProps } from './types';
-import colors from '../config/colors';
-import { PlantsScreen, TempScreen, CartScreen } from '../screens';
-import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import AccountScreen from '../screens/Account';
-import { PlaceOrderScreen } from '../screens';
+import { HomeNavigatorProps } from "./types";
+import colors from "../config/colors";
+import { PlantsScreen, TempScreen, CartScreen, HomeScreen } from "../screens";
+import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AccountScreen from "../screens/Account";
+import { PlaceOrderScreen } from "../screens";
 
 const Tab = createBottomTabNavigator<HomeNavigatorProps>();
 
 const HomeNavigator = () => (
   <Tab.Navigator
-    initialRouteName='Plants'
+    initialRouteName="Plants"
     screenOptions={{
-      tabBarLabel: '',
+      tabBarLabel: "",
     }}
     tabBarOptions={{
       activeTintColor: colors.primary,
@@ -26,12 +26,12 @@ const HomeNavigator = () => (
     }}
   >
     <Tab.Screen
-      name='Plants'
-      component={PlantsScreen}
+      name="Plants"
+      component={HomeScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
           <FontAwesome5
-            name='home'
+            name="home"
             color={color}
             size={size}
             style={styles.icon}
@@ -40,12 +40,12 @@ const HomeNavigator = () => (
       }}
     />
     <Tab.Screen
-      name='List Category'
-      component={TempScreen}
+      name="List Category"
+      component={PlantsScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
           <FontAwesome
-            name='list-ul'
+            name="list-ul"
             color={color}
             size={size}
             style={styles.icon}
@@ -54,12 +54,12 @@ const HomeNavigator = () => (
       }}
     />
     <Tab.Screen
-      name='Shopping Cart'
+      name="Shopping Cart"
       component={CartScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
           <FontAwesome
-            name='shopping-cart'
+            name="shopping-cart"
             color={color}
             size={size}
             style={styles.icon}
@@ -68,18 +68,18 @@ const HomeNavigator = () => (
       }}
     />
     <Tab.Screen
-      name='Account'
+      name="Account"
       component={AccountScreen}
       options={{
         tabBarIcon: ({ size, color }) => (
           <MaterialCommunityIcons
-            name='account'
+            name="account"
             color={color}
             size={size}
             style={styles.icon}
           />
         ),
-        title: 'TÀI KHOẢN',
+        title: "TÀI KHOẢN",
       }}
     />
     {/* <Tab.Screen name='PlaceOrder' component={PlaceOrderScreen} /> */}
