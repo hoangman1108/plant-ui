@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Image,
   ScrollView,
@@ -9,15 +9,16 @@ import {
   Text,
   Picker,
   Button,
-} from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { Divider } from 'react-native-elements';
-import Screen from './Screen';
-import AppText from '../components/AppText';
-import HeaderTab from '../components/HeaderTab';
-import colors from '../config/colors';
-import { AppNavigatorProps } from '../navigation/types';
-import numberFormat from '../util/formatNumberMoney';
+} from "react-native";
+import { saveShippingAddress } from "../actions/cartActions";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { Divider } from "react-native-elements";
+import Screen from "./Screen";
+import AppText from "../components/AppText";
+import HeaderTab from "../components/HeaderTab";
+import colors from "../config/colors";
+import { AppNavigatorProps } from "../navigation/types";
+import numberFormat from "../util/formatNumberMoney";
 
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps>;
@@ -26,12 +27,20 @@ interface Props {
 const AddressScreen: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  const [address, setAddress] = useState('');
-  const [selectedValue, setSelectedValue] = useState('java');
+  const [address, setAddress] = useState("");
+  const [selectedValueProvince, setSelectedValueProvince] = useState("TP HCM");
+  const [selectedValueDistrict, setSelectedValueDistrict] = useState("Q.1");
+  const [selectedValueWard, setSelectedValueWard] = useState("P.1");
+
+  const Province = ["TP HCM", "Vũng tàu"];
+
+  const District = ["Q.1", "Q.2", "Q.3"];
+
+  const Ward = ["P.1", "P.2", "P.3"];
 
   const cartReducer = useSelector((state: any) => state.cartReducer);
   const { cartItems } = cartReducer;
-  console.log('CartScreen - cartReducer: ', cartItems);
+  console.log("CartScreen - cartReducer: ", cartItems);
 
   return (
     <Screen>
@@ -42,40 +51,43 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
         <View style={styles.field}>
           <Text>Thành phố</Text>
           <Picker
-            selectedValue={selectedValue}
+            selectedValue={selectedValueProvince}
             style={styles.input}
             onValueChange={(itemValue, itemIndex) =>
-              setSelectedValue(itemValue)
+              setSelectedValueProvince(itemValue)
             }
           >
-            <Picker.Item label='Java' value='java' />
-            <Picker.Item label='JavaScript' value='js' />
+            {Province.map((e) => (
+              <Picker.Item label={e} value={e} />
+            ))}
           </Picker>
         </View>
         <View style={styles.field}>
           <Text>Quận</Text>
           <Picker
-            selectedValue={selectedValue}
+            selectedValue={selectedValueDistrict}
             style={styles.input}
             onValueChange={(itemValue, itemIndex) =>
-              setSelectedValue(itemValue)
+              setSelectedValueDistrict(itemValue)
             }
           >
-            <Picker.Item label='Java' value='java' />
-            <Picker.Item label='JavaScript' value='js' />
+            {District.map((e) => (
+              <Picker.Item key={e} label={e} value={e} />
+            ))}
           </Picker>
         </View>
         <View style={styles.field}>
           <Text>Phường</Text>
           <Picker
-            selectedValue={selectedValue}
+            selectedValue={selectedValueWard}
             style={styles.input}
             onValueChange={(itemValue, itemIndex) =>
-              setSelectedValue(itemValue)
+              setSelectedValueWard(itemValue)
             }
           >
-            <Picker.Item label='Java' value='java' />
-            <Picker.Item label='JavaScript' value='js' />
+            {Ward.map((e) => (
+              <Picker.Item label={e} value={e} />
+            ))}
           </Picker>
         </View>
 
@@ -85,14 +97,34 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
             style={styles.input}
             onChangeText={setAddress}
             value={address}
-            placeholder='Địa chỉ nhà'
+            placeholder="Địa chỉ nhà"
             // keyboardType="numeric"
           />
         </View>
-        <Button
-          title='Press me'
-          onPress={() => navigation.navigate('PlaceOrder')}
-        />
+
+        <AppText
+          onPress={() => {
+            navigation.navigate("PlaceOrder");
+
+            console.log(Ward);
+            dispatch(
+              saveShippingAddress(
+                `${address}, ${selectedValueWard}, ${selectedValueDistrict}, ${selectedValueProvince}`
+              )
+            );
+          }}
+          style={{
+            backgroundColor:
+              cartItems.length !== 0 ? colors.active : "#rgb(107,107,107)",
+            color: colors.white,
+            paddingHorizontal: 20,
+            paddingVertical: 16,
+            borderRadius: 30,
+            textAlign: "center",
+          }}
+        >
+          LƯU ĐỊA CHỈ
+        </AppText>
       </View>
     </Screen>
   );

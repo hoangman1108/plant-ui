@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Image, ScrollView, StyleSheet, View } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { Divider } from 'react-native-elements';
-import Screen from './Screen';
-import AppText from '../components/AppText';
-import HeaderTab from '../components/HeaderTab';
-import colors from '../config/colors';
-import { AppNavigatorProps } from '../navigation/types';
-import { AntDesign } from '@expo/vector-icons';
-import numberFormat from '../util/formatNumberMoney';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { Divider } from "react-native-elements";
+import Screen from "./Screen";
+import AppText from "../components/AppText";
+import HeaderTab from "../components/HeaderTab";
+import colors from "../config/colors";
+import { AppNavigatorProps } from "../navigation/types";
+import { AntDesign } from "@expo/vector-icons";
+import numberFormat from "../util/formatNumberMoney";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-import { addToCart, removeFromCart } from '../actions/cartActions';
-import { FontAwesome } from '@expo/vector-icons';
+import { addToCart, removeFromCart } from "../actions/cartActions";
+import { FontAwesome } from "@expo/vector-icons";
 
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps>;
@@ -24,7 +24,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
 
   const cartReducer = useSelector((state: any) => state.cartReducer);
   const { cartItems } = cartReducer;
-  console.log('CartScreen - cartReducer: ', cartItems);
+  console.log("CartScreen - cartReducer: ", cartItems);
 
   const handleAddToCart = (product, qty) => {
     if (qty === 0) return;
@@ -33,33 +33,33 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
   };
 
   const removeFromCartHandler = (productID) => {
-    console.log('CartScreen - productId: ', productID);
+    console.log("CartScreen - productId: ", productID);
     dispatch(removeFromCart(productID));
   };
 
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       <View style={{ marginTop: 20 }}>
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <FontAwesome
-            style={{ position: 'absolute', left: 20 }}
-            name='chevron-left'
+            style={{ position: "absolute", left: 20 }}
+            name="chevron-left"
             size={28}
-            color='rgba(0,0,0,.69)'
-            onPress={() => navigation.navigate('Plants')}
+            color="rgba(0,0,0,.69)"
+            onPress={() => navigation.navigate("Plants")}
           />
           <AppText
             style={{
               fontSize: 28,
-              fontWeight: 'bold',
-              textTransform: 'uppercase',
-              textAlign: 'center',
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              textAlign: "center",
             }}
           >
             ĐƠN HÀNG
@@ -74,14 +74,14 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
           <View style={{ paddingVertical: 40, paddingHorizontal: 22 }}>
             <View
               style={{
-                backgroundColor: '#d2ebf5',
-                borderColor: 'c0e3f2',
+                backgroundColor: "#d2ebf5",
+                borderColor: "c0e3f2",
                 height: 60,
-                justifyContent: 'center',
-                alignItems: 'center',
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <AppText style={{ color: '#10516c', fontWeight: 'bold' }}>
+              <AppText style={{ color: "#10516c", fontWeight: "bold" }}>
                 Your cart is emty
               </AppText>
             </View>
@@ -94,12 +94,12 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                   <View style={{ marginBottom: 8 }}>
                     <TouchableOpacity
                       onPress={() =>
-                        navigation.navigate('PlantDetail', { item: cartItem })
+                        navigation.navigate("PlantDetail", { item: cartItem })
                       }
                     >
                       <Image
                         source={{ uri: cartItem.image }}
-                        style={{ width: '100%', height: 220, borderRadius: 20 }}
+                        style={{ width: "100%", height: 220, borderRadius: 20 }}
                       />
                     </TouchableOpacity>
                   </View>
@@ -114,19 +114,19 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                   </View>
                   <View
                     style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                       padding: 5,
-                      backgroundColor: '#rgba(210, 235, 245, 0.5)',
-                      borderColor: 'c0e3f2',
+                      backgroundColor: "#rgba(210, 235, 245, 0.5)",
+                      borderColor: "c0e3f2",
                       marginBottom: 16,
                     }}
                   >
                     <View
                       style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
+                        flexDirection: "row",
+                        alignItems: "center",
                       }}
                     >
                       <View
@@ -140,9 +140,9 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                           }
                         >
                           <AntDesign
-                            name='minussquareo'
+                            name="minussquareo"
                             size={32}
-                            color='#rgba(12, 12, 12, 0.8)'
+                            color="#rgba(12, 12, 12, 0.8)"
                           />
                         </TouchableOpacity>
                       </View>
@@ -160,9 +160,9 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                           }
                         >
                           <AntDesign
-                            name='plussquareo'
+                            name="plussquareo"
                             size={32}
-                            color='#rgba(12, 12, 12, 0.8)'
+                            color="#rgba(12, 12, 12, 0.8)"
                           />
                         </TouchableOpacity>
                       </View>
@@ -173,7 +173,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                           removeFromCartHandler(cartItem.productId)
                         }
                       >
-                        <AntDesign name='delete' size={32} color='#dc3545' />
+                        <AntDesign name="delete" size={32} color="#dc3545" />
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -189,8 +189,8 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
           <View style={styles.contentBox}>
             <View
               style={{
-                justifyContent: 'center',
-                alignItems: 'center',
+                justifyContent: "center",
+                alignItems: "center",
                 paddingBottom: 5,
               }}
             >
@@ -205,7 +205,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                     (acc, item) => acc + item.qty * item.price,
                     0
                   )
-                )}{' '}
+                )}{" "}
                 VNĐ
               </AppText>
             </View>
@@ -215,7 +215,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               activeOpacity={cartItems.length === 0 ? 1 : 0.7}
               onPress={() => {
                 if (cartItems.length !== 0) {
-                  navigation.navigate('ShippingAddress');
+                  navigation.navigate("ShippingAddress");
                 } else {
                   return;
                 }
@@ -226,12 +226,12 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                   backgroundColor:
                     cartItems.length !== 0
                       ? colors.active
-                      : '#rgb(107,107,107)',
+                      : "#rgb(107,107,107)",
                   color: colors.white,
                   paddingHorizontal: 20,
                   paddingVertical: 16,
                   borderRadius: 30,
-                  textAlign: 'center',
+                  textAlign: "center",
                 }}
               >
                 TIẾN HÀNH ĐẶT HÀNG
@@ -245,16 +245,19 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: "while",
+  },
   contentBox: {
-    flexDirection: 'column',
+    flexDirection: "column",
     border: `1px solid ${colors.grey}`,
     padding: 10,
     marginTop: 10,
   },
   contentBoxV2: {
-    flexDirection: 'column',
+    flexDirection: "column",
     border: `1px solid ${colors.grey}`,
-    borderTopWidth: '0px',
+    borderTopWidth: "0px",
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
