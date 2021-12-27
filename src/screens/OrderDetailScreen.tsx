@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Image, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Divider } from 'react-native-elements';
 import Screen from './Screen';
@@ -79,10 +85,16 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
             return (
               <View key={cartItem.productId}>
                 <View style={{ marginBottom: 8 }}>
-                  <Image
-                    source={{ uri: cartItem.image }}
-                    style={{ width: '100%', height: 220, borderRadius: 20 }}
-                  />
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('PlantDetail', { item: cartItem })
+                    }
+                  >
+                    <Image
+                      source={{ uri: cartItem.image }}
+                      style={{ width: '100%', height: 220, borderRadius: 20 }}
+                    />
+                  </TouchableOpacity>
                 </View>
                 <View style={{ marginBottom: 3 }}>
                   <AppText>{cartItem.name}</AppText>

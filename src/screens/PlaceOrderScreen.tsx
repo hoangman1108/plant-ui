@@ -45,10 +45,16 @@ const PlaceOrderScreen: React.FC<Props> = ({ navigation }) => {
             return (
               <View key={cartItem.productId}>
                 <View style={{ marginBottom: 8 }}>
-                  <Image
-                    source={{ uri: cartItem.image }}
-                    style={{ width: '100%', height: 220, borderRadius: 20 }}
-                  />
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('PlantDetail', { item: cartItem })
+                    }
+                  >
+                    <Image
+                      source={{ uri: cartItem.image }}
+                      style={{ width: '100%', height: 220, borderRadius: 20 }}
+                    />
+                  </TouchableOpacity>
                 </View>
                 <View style={{ marginBottom: 3 }}>
                   <AppText>{cartItem.name}</AppText>
