@@ -5,6 +5,7 @@ import TempScreen from './TempScreen';
 import PlaceOrderScreen from './PlaceOrderScreen';
 import OrderDetailScreen from './OrderDetailScreen';
 import HomeScreen from './HomeScreen';
+import AddressScreen from './AddressScreen';
 
 export {
   PlantsScreen,
@@ -13,5 +14,6 @@ export {
   CartScreen,
   PlaceOrderScreen,
   OrderDetailScreen,
-  HomeScreen
+  HomeScreen,
+  AddressScreen,
 };

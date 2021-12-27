@@ -209,7 +209,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               activeOpacity={cartItems.length === 0 ? 1 : 0.7}
               onPress={() => {
                 if (cartItems.length !== 0) {
-                  navigation.navigate('PlaceOrder');
+                  navigation.navigate('ShippingAddress');
                 } else {
                   return;
                 }

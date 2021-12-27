@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Image,
   ScrollView,
@@ -9,29 +9,29 @@ import {
   Text,
   Picker,
   Button,
-} from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { Divider } from "react-native-elements";
-import Screen from "./Screen";
-import AppText from "../components/AppText";
-import HeaderTab from "../components/HeaderTab";
-import colors from "../config/colors";
-import { AppNavigatorProps } from "../navigation/types";
-import numberFormat from "../util/formatNumberMoney";
+} from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { Divider } from 'react-native-elements';
+import Screen from './Screen';
+import AppText from '../components/AppText';
+import HeaderTab from '../components/HeaderTab';
+import colors from '../config/colors';
+import { AppNavigatorProps } from '../navigation/types';
+import numberFormat from '../util/formatNumberMoney';
 
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps>;
 }
 
-const CartScreen: React.FC<Props> = ({ navigation }) => {
+const AddressScreen: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  const [address, setAddress] = useState("");
-  const [selectedValue, setSelectedValue] = useState("java");
+  const [address, setAddress] = useState('');
+  const [selectedValue, setSelectedValue] = useState('java');
 
   const cartReducer = useSelector((state: any) => state.cartReducer);
   const { cartItems } = cartReducer;
-  console.log("CartScreen - cartReducer: ", cartItems);
+  console.log('CartScreen - cartReducer: ', cartItems);
 
   return (
     <Screen>
@@ -48,8 +48,8 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               setSelectedValue(itemValue)
             }
           >
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label='Java' value='java' />
+            <Picker.Item label='JavaScript' value='js' />
           </Picker>
         </View>
         <View style={styles.field}>
@@ -61,8 +61,8 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               setSelectedValue(itemValue)
             }
           >
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label='Java' value='java' />
+            <Picker.Item label='JavaScript' value='js' />
           </Picker>
         </View>
         <View style={styles.field}>
@@ -74,8 +74,8 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               setSelectedValue(itemValue)
             }
           >
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label='Java' value='java' />
+            <Picker.Item label='JavaScript' value='js' />
           </Picker>
         </View>
 
@@ -85,11 +85,14 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
             style={styles.input}
             onChangeText={setAddress}
             value={address}
-            placeholder="Địa chỉ nhà"
+            placeholder='Địa chỉ nhà'
             // keyboardType="numeric"
           />
         </View>
-        <Button title="Press me" onPress={() => console.log("ok")} />
+        <Button
+          title='Press me'
+          onPress={() => navigation.navigate('PlaceOrder')}
+        />
       </View>
     </Screen>
   );
@@ -106,9 +109,9 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 10,
   },
-  field:{
-      marginBottom:30
-  }
+  field: {
+    marginBottom: 30,
+  },
 });
 
-export default CartScreen;
+export default AddressScreen;
