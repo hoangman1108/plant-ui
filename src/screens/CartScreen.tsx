@@ -13,6 +13,7 @@ import numberFormat from '../util/formatNumberMoney';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { addToCart, removeFromCart } from '../actions/cartActions';
+import { FontAwesome } from '@expo/vector-icons';
 
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps>;
@@ -39,7 +40,31 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <Screen>
       <View style={{ marginTop: 20 }}>
-        <HeaderTab navigation={navigation}>Giỏ Hàng</HeaderTab>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <FontAwesome
+            style={{ position: 'absolute', left: 20 }}
+            name='chevron-left'
+            size={28}
+            color='rgba(0,0,0,.69)'
+            onPress={() => navigation.navigate('Plants')}
+          />
+          <AppText
+            style={{
+              fontSize: 28,
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              textAlign: 'center',
+            }}
+          >
+            ĐƠN HÀNG
+          </AppText>
+        </View>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
