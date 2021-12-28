@@ -67,7 +67,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
           </AppText>
           <AppText>Khách hàng: Hoàng Nghĩa</AppText>
           <AppText>Mã đơn hàng: 5f776ab</AppText>
-          <Divider width={2} style={{ marginVertical: 14 }}></Divider>
+          <View style={{ marginVertical: 10 }}></View>
           <AppText
             style={{ fontWeight: 'bold', fontSize: 22, marginBottom: 6 }}
           >
@@ -75,7 +75,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
           </AppText>
           <AppText>Địa chỉ: {shippingAddress}</AppText>
           <AppText>Trạng thái: Đang vận chuyển</AppText>
-          <Divider width={2} style={{ marginVertical: 14 }}></Divider>
+          <View style={{ marginVertical: 10 }}></View>
           <AppText
             style={{ fontWeight: 'bold', fontSize: 22, marginBottom: 8 }}
           >
@@ -105,9 +105,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
                     {numberFormat(cartItem.qty * cartItem.price)} VNĐ
                   </AppText>
                 </View>
-                <View style={{ marginVertical: 10 }}>
-                  <Divider width={2}></Divider>
-                </View>
+                <View style={{ marginVertical: 10 }}></View>
               </View>
             );
           })}
@@ -144,7 +142,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
             <AppText>Thuế</AppText>
             <AppText>$0.00 VNĐ</AppText>
           </View>
-          <View style={styles.contenBoxV3}>
+          <View style={styles.contentBoxV2}>
             <AppText>Tổng Cộng</AppText>
             <AppText>
               $
@@ -168,16 +166,19 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   contentBoxV2: {
-    flexDirection: 'column',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     border: `1px solid ${colors.grey}`,
     borderTopWidth: '0px',
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical: 10,
+    marginBottom: 20,
   },
   contenBoxV3: {
     flexDirection: 'row',
     border: `1px solid ${colors.grey}`,
     borderTopWidth: '0px',
+    borderBottomWidth: '0px',
     paddingHorizontal: 10,
     paddingVertical: 10,
     alignItems: 'center',

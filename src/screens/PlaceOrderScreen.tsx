@@ -35,7 +35,7 @@ const PlaceOrderScreen: React.FC<Props> = ({ navigation }) => {
             GIAO HÀNG
           </AppText>
           <AppText>Địa chỉ: {shippingAddress}</AppText>
-          <Divider width={2} style={{ marginVertical: 14 }}></Divider>
+          <View style={{ marginVertical: 12 }}></View>
           <AppText
             style={{ fontWeight: 'bold', fontSize: 22, marginBottom: 8 }}
           >
@@ -65,9 +65,7 @@ const PlaceOrderScreen: React.FC<Props> = ({ navigation }) => {
                     {numberFormat(cartItem.qty * cartItem.price)} VNĐ
                   </AppText>
                 </View>
-                <View style={{ marginVertical: 10 }}>
-                  <Divider width={2}></Divider>
-                </View>
+                <View style={{ marginVertical: 10 }}></View>
               </View>
             );
           })}
@@ -158,7 +156,6 @@ const styles = StyleSheet.create({
   contentBoxV2: {
     flexDirection: 'column',
     border: `1px solid ${colors.grey}`,
-    borderTopWidth: '0px',
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
@@ -166,6 +163,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     border: `1px solid ${colors.grey}`,
     borderTopWidth: '0px',
+    borderBottomWidth: '0px',
     paddingHorizontal: 10,
     paddingVertical: 10,
     alignItems: 'center',
