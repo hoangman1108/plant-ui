@@ -22,6 +22,7 @@ import HeaderTab from '../components/HeaderTab';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { FontAwesome } from '@expo/vector-icons';
 import RNPickerSelect from 'react-native-picker-select';
+import numberFormat from '../util/formatNumberMoney';
 
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps, 'PlantDetail'>;
@@ -103,7 +104,9 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
           </View>
         </View>
         <AppText style={styles.lineHorizontal}></AppText>
-        <AppText style={styles.fontNormal}>Giá: {price} VNĐ</AppText>
+        <AppText style={styles.fontNormal}>
+          Giá: ${numberFormat(price)} VNĐ
+        </AppText>
         <AppText style={styles.lineHorizontal}></AppText>
         <AppText style={styles.fontNormal}>Mô tả: {description}</AppText>
         <View style={styles.contentBox}>

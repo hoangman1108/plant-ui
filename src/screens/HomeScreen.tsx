@@ -23,7 +23,6 @@ import { AppNavigatorProps } from '../navigation/types';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
-
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps>;
 }
