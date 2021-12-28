@@ -101,8 +101,9 @@ const styles = StyleSheet.create({
     opacity: 0.3,
   },
   text: {
-    fontSize: 14,
+    fontSize: 16,
     textTransform: 'uppercase',
+    marginBottom: 4,
   },
   price: {
     color: colors.primary,
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.greyV2,
     borderRadius: 15,
     paddingHorizontal: 5,
-    paddingVertical: 5,
+    paddingVertical: 2,
     textAlign: 'center',
   },
 });

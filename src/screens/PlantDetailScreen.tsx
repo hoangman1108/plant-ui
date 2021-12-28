@@ -109,7 +109,7 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
         </AppText>
         <AppText style={styles.lineHorizontal}></AppText>
         <AppText style={styles.fontNormal}>Mô tả: {description}</AppText>
-        <View style={styles.contentBox}>
+        <View style={[styles.contentBox, { marginTop: 28 }]}>
           <View
             style={{
               flexDirection: 'row',
@@ -153,13 +153,13 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
             />
           </View>
         </View>
-        <View style={styles.contentBoxV2}>
+        <View style={[styles.contentBoxV2, { marginBottom: 28 }]}>
           <AppText
             style={{
               backgroundColor: colors.active,
               color: colors.white,
               paddingHorizontal: 20,
-              paddingVertical: 20,
+              paddingVertical: 14,
               borderRadius: 30,
               textAlign: 'center',
             }}
@@ -249,9 +249,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   lineHorizontal: {
-    borderTopWidth: 1,
-    borderColor: colors.grey,
-    marginVertical: 10,
+    marginVertical: 7,
   },
   fontSmall: {
     fontSize: 18,
