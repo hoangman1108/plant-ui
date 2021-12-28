@@ -101,7 +101,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
                 </View>
                 <View style={{ marginBottom: 3 }}>
                   <AppText>
-                    {cartItem.qty} x ${numberFormat(cartItem.price)} = $
+                    {cartItem.qty} x {numberFormat(cartItem.price)} ={' '}
                     {numberFormat(cartItem.qty * cartItem.price)} VNĐ
                   </AppText>
                 </View>
@@ -127,7 +127,6 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
           <View style={styles.contenBoxV3}>
             <AppText>Sản Phẩm</AppText>
             <AppText>
-              $
               {numberFormat(
                 cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)
               )}{' '}
@@ -136,16 +135,15 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
           </View>
           <View style={styles.contenBoxV3}>
             <AppText>Phí Ship</AppText>
-            <AppText>$0.00 VNĐ</AppText>
+            <AppText>0.00 VNĐ</AppText>
           </View>
           <View style={styles.contenBoxV3}>
             <AppText>Thuế</AppText>
-            <AppText>$0.00 VNĐ</AppText>
+            <AppText>0.00 VNĐ</AppText>
           </View>
           <View style={styles.contentBoxV2}>
             <AppText>Tổng Cộng</AppText>
             <AppText>
-              $
               {numberFormat(
                 cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)
               )}{' '}

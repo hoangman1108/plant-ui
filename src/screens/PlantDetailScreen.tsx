@@ -105,7 +105,7 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
         </View>
         <AppText style={styles.lineHorizontal}></AppText>
         <AppText style={styles.fontNormal}>
-          Giá: ${numberFormat(price)} VNĐ
+          Giá: {numberFormat(price)} VNĐ
         </AppText>
         <AppText style={styles.lineHorizontal}></AppText>
         <AppText style={styles.fontNormal}>Mô tả: {description}</AppText>

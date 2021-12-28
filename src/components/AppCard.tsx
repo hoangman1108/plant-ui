@@ -45,7 +45,7 @@ const AppCard: React.FC<Props> = ({
         <AppText style={styles.text}>{name}</AppText>
       </View>
       <View>
-        <AppText style={[styles.text]}>${numberFormat(price)} VNĐ</AppText>
+        <AppText style={[styles.text]}>{numberFormat(price)} VNĐ</AppText>
       </View>
       <View>
         <AppText style={styles.addOrder} onPress={onRedirectCart}>

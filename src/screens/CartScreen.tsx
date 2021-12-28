@@ -164,7 +164,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                   </View>
                   <View style={{ marginBottom: 3 }}>
                     <AppText>
-                      {cartItem.qty} x ${numberFormat(cartItem.price)} = $
+                      {cartItem.qty} x {numberFormat(cartItem.price)} ={' '}
                       {numberFormat(cartItem.qty * cartItem.price)} VNĐ
                     </AppText>
                   </View>
@@ -228,7 +228,6 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                 Sản Phẩm
               </AppText>
               <AppText style={[styles.fontNormal, { marginTop: 2 }]}>
-                $
                 {numberFormat(
                   cartItems.reduce(
                     (acc, item) => acc + item.qty * item.price,
