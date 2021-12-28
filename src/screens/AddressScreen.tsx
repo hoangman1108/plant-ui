@@ -43,13 +43,13 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
   console.log("CartScreen - cartReducer: ", cartItems);
 
   return (
-    <Screen>
+    <Screen style={{ backgroundColor: "#FFFFFF" }}>
       <View style={{ marginTop: 20 }}>
         <HeaderTab navigation={navigation}>Địa chỉ giao hàng</HeaderTab>
       </View>
       <View style={{ paddingVertical: 40, paddingHorizontal: 22 }}>
         <View style={styles.field}>
-          <Text>Thành phố</Text>
+          <Text style={styles.label}>Thành phố</Text>
           <Picker
             selectedValue={selectedValueProvince}
             style={styles.input}
@@ -63,7 +63,7 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
           </Picker>
         </View>
         <View style={styles.field}>
-          <Text>Quận</Text>
+          <Text style={styles.label}>Quận</Text>
           <Picker
             selectedValue={selectedValueDistrict}
             style={styles.input}
@@ -77,7 +77,7 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
           </Picker>
         </View>
         <View style={styles.field}>
-          <Text>Phường</Text>
+          <Text style={styles.label}>Phường</Text>
           <Picker
             selectedValue={selectedValueWard}
             style={styles.input}
@@ -92,7 +92,7 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
         </View>
 
         <View style={styles.field}>
-          <Text>Địa chỉ nhà: </Text>
+          <Text style={styles.label}>Địa chỉ nhà: </Text>
           <TextInput
             style={styles.input}
             onChangeText={setAddress}
@@ -131,12 +131,18 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  label:{
+
+    fontSize:18
+
+  },
   input: {
     height: 40,
-    margin: 12,
+    margin: 5,
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
+    backgroundColor: "#FFFFFF",
   },
   button: {
     borderRadius: 10,
