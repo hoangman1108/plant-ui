@@ -24,12 +24,16 @@ import { FontAwesome } from '@expo/vector-icons';
 import RNPickerSelect from 'react-native-picker-select';
 import numberFormat from '../util/formatNumberMoney';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../actions/cartActions';
+
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps, 'PlantDetail'>;
   route: RouteProp<AppNavigatorProps, 'PlantDetail'>;
 }
 
 const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
+  const dispatch = useDispatch();
   const { name, rating, location, price, image, description, thumnails } =
     route.params.item;
 
@@ -141,14 +145,13 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
             <RNPickerSelect
               onValueChange={(value) => console.log('')}
               items={[
-                { label: '1', value: '1' },
                 { label: '2', value: '2' },
                 { label: '3', value: '3' },
                 { label: '4', value: '4' },
               ]}
               placeholder={{
-                label: 'Select quantity...',
-                value: null,
+                label: '1',
+                value: 1,
               }}
             />
           </View>
@@ -163,7 +166,10 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
               borderRadius: 30,
               textAlign: 'center',
             }}
-            onPress={() => navigation.navigate('Cart')}
+            onPress={() => {
+              dispatch(addToCart(route.params.item, 1));
+              navigation.navigate('Cart');
+            }}
           >
             ĐƯA VÀO GIỎ HÀNG
           </AppText>
