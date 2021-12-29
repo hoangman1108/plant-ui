@@ -234,18 +234,20 @@ const EditProductScreen: React.FC<Props> = ({ navigation }) => {
             marginBottom: 30,
           }}
         >
-          <AppText
-            style={{
-              backgroundColor: colors.active,
-              color: colors.white,
-              paddingHorizontal: 20,
-              paddingVertical: 16,
-              borderRadius: 30,
-              textAlign: 'center',
-            }}
-          >
-            LƯU THAY ĐổI
-          </AppText>
+          <TouchableOpacity onPress={() => navigation.navigate('Plants')}>
+            <AppText
+              style={{
+                backgroundColor: colors.active,
+                color: colors.white,
+                paddingHorizontal: 20,
+                paddingVertical: 16,
+                borderRadius: 30,
+                textAlign: 'center',
+              }}
+            >
+              LƯU THAY ĐổI
+            </AppText>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </Screen>
