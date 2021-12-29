@@ -164,14 +164,16 @@ const EditProductScreen: React.FC<Props> = ({ navigation }) => {
           </View>
 
           <View style={{ position: 'relative' }}>
-            <TextInput
-              style={[styles.input, { backgroundColor: '#ddd' }]}
-              placeholder='Bonsai'
-              keyboardType='default'
-            />
-            <View style={{ position: 'absolute', right: 30, top: 12 }}>
-              <AntDesign name='down' size={24} color='black' />
-            </View>
+            <TouchableOpacity>
+              <TextInput
+                style={[styles.input, { backgroundColor: '#ddd' }]}
+                placeholder='Bonsai'
+                keyboardType='default'
+              />
+              <View style={{ position: 'absolute', right: 30, top: 12 }}>
+                <AntDesign name='down' size={24} color='black' />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 
