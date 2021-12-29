@@ -49,6 +49,11 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
     return arr;
   };
 
+  // Get userInfo from localStorage
+  const isAdminLogin: string = localStorage.getItem('isAdmin') || null;
+
+  console.log('Home Screen - isAdminLogin: ', isAdminLogin);
+
   return (
     <Screen>
       <View style={styles.header}>
@@ -65,11 +70,37 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
           </View>
         </View>
       </View>
+
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}>
+        <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 20 }}>
           {'\n'}
-          ĐƯỢC MUA NHIỀU NHẤT
+          {isAdminLogin ? 'QUẢN LÝ DANH SÁCH SẢN PHẨM' : 'ĐƯỢC MUA NHIỀU NHẤT'}
         </Text>
+        {isAdminLogin ? (
+          <View style={{ marginVertical: 20, marginHorizontal: 40 }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('AdminEditProduct');
+              }}
+            >
+              <AppText
+                style={{
+                  backgroundColor: colors.active,
+                  color: colors.white,
+                  paddingHorizontal: 20,
+                  paddingVertical: 16,
+                  borderRadius: 30,
+                  textAlign: 'center',
+                  fontSize: 18,
+                }}
+              >
+                THÊM SẢN PHẨM MỚI
+              </AppText>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <></>
+        )}
         <FlatList
           style={styles.gridProducts}
           data={productsData}

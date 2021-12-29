@@ -6,6 +6,7 @@ import PlaceOrderScreen from './PlaceOrderScreen';
 import OrderDetailScreen from './OrderDetailScreen';
 import HomeScreen from './HomeScreen';
 import AddressScreen from './AddressScreen';
+import EditProductScreen from './EditProductScreen';
 
 export {
   PlantsScreen,
@@ -16,4 +17,5 @@ export {
   OrderDetailScreen,
   HomeScreen,
   AddressScreen,
+  EditProductScreen,
 };

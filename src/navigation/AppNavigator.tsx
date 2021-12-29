@@ -9,6 +9,7 @@ import {
   PlaceOrderScreen,
   OrderDetailScreen,
   AddressScreen,
+  EditProductScreen,
 } from '../screens';
 
 const Stack = createStackNavigator<AppNavigatorProps>();
@@ -30,6 +31,7 @@ const AppNavigator = () => (
     <Stack.Screen name='PlaceOrder' component={PlaceOrderScreen} />
     <Stack.Screen name='OrderDetail' component={OrderDetailScreen} />
     <Stack.Screen name='ShippingAddress' component={AddressScreen} />
+    <Stack.Screen name='AdminEditProduct' component={EditProductScreen} />
   </Stack.Navigator>
 );
 
