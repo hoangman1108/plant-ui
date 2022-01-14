@@ -4,7 +4,7 @@ import {
   StatusBar,
   StyleSheet,
   View,
-  TextInputComponent,
+  TextInputComponent
 } from 'react-native';
 import { RouteProp } from '@react-navigation/core';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -67,10 +67,10 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
             shadowColor: '#000',
             shadowOffset: {
               width: 0,
-              height: 1,
+              height: 1
             },
             shadowOpacity: 0.22,
-            shadowRadius: 2.22,
+            shadowRadius: 2.22
           }}
           dotColor='#FFEE58'
           inactiveDotColor='#90A4AE'
@@ -85,7 +85,7 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'space-between'
           }}
         >
           <AirbnbRating
@@ -118,17 +118,19 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              paddingBottom: 5,
+              paddingBottom: 5
             }}
           >
             <AppText style={styles.fontNormal}>Giá sản phẩm:</AppText>
-            <AppText style={styles.fontNormal}>{price} VNĐ</AppText>
+            <AppText style={styles.fontNormal}>
+              {numberFormat(price)} VNĐ
+            </AppText>
           </View>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              paddingBottom: 5,
+              paddingBottom: 5
             }}
           >
             <AppText style={styles.fontNormal}>Trạng thái:</AppText>
@@ -138,7 +140,7 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
             <AppText style={styles.fontNormal}>Chọn số lượng:</AppText>
@@ -147,11 +149,11 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
               items={[
                 { label: '2', value: '2' },
                 { label: '3', value: '3' },
-                { label: '4', value: '4' },
+                { label: '4', value: '4' }
               ]}
               placeholder={{
                 label: '1',
-                value: 1,
+                value: 1
               }}
             />
           </View>
@@ -164,7 +166,7 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
               paddingHorizontal: 20,
               paddingVertical: 14,
               borderRadius: 30,
-              textAlign: 'center',
+              textAlign: 'center'
             }}
             onPress={() => {
               dispatch(addToCart(route.params.item, 1));
@@ -184,49 +186,49 @@ const styles = StyleSheet.create({
     bottom: 0,
     flexDirection: 'row',
     marginTop: 20,
-    position: 'absolute',
+    position: 'absolute'
   },
   buttonBuyNow: {
-    borderTopRightRadius: 30,
+    borderTopRightRadius: 30
   },
   buttonDescription: {
-    backgroundColor: colors.light,
+    backgroundColor: colors.light
   },
   carousel: {
     borderBottomLeftRadius: 60,
     borderTopLeftRadius: 60,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   content: {
     flex: 1,
-    marginTop: 25,
+    marginTop: 25
   },
   contentTitle: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   header: {
     alignItems: 'center',
     flex: 4,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   icon: {
     backgroundColor: colors.white,
     elevation: 3,
     margin: 30,
-    padding: 10,
+    padding: 10
   },
   image: {
     height: '100%',
-    width: `${100 / 2}%`,
+    width: `${100 / 2}%`
   },
   location: {
     color: colors.primary,
     opacity: 0.3,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   navigation: {
     flexDirection: 'row',
@@ -235,47 +237,47 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     width: '100%',
-    zIndex: 1,
+    zIndex: 1
   },
   navigationIcon: {
     color: colors.dark,
     fontSize: 30,
-    opacity: 0.4,
+    opacity: 0.4
   },
   name: {
-    fontSize: 30,
+    fontSize: 30
   },
   price: {
     color: colors.primary,
-    letterSpacing: 1.5,
+    letterSpacing: 1.5
   },
   defaultLayout: {
     width: '100vw',
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 10
   },
   lineHorizontal: {
-    marginVertical: 7,
+    marginVertical: 7
   },
   fontSmall: {
-    fontSize: 18,
+    fontSize: 18
   },
   fontNormal: {
-    fontSize: 22,
+    fontSize: 22
   },
   contentBox: {
     flexDirection: 'column',
     border: `1px solid ${colors.grey}`,
     padding: 10,
-    marginTop: 10,
+    marginTop: 10
   },
   contentBoxV2: {
     flexDirection: 'column',
     border: `1px solid ${colors.grey}`,
     borderTopWidth: '0px',
     paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
+    paddingVertical: 10
+  }
 });
 
 export default PlantDetailScreen;

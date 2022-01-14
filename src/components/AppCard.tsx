@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 
 import AppText from './AppText';
@@ -36,7 +36,7 @@ const AppCard: React.FC<Props> = ({
   image,
   widthChange = 1,
   onRedirectCart,
-  onPress,
+  onPress
 }) => (
   <TouchableOpacity style={styles.conatiner} onPress={onPress}>
     <Image source={image} style={styles.image} />
@@ -74,47 +74,48 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 1
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     flexGrow: 1,
     flexBasis: '50%',
-    flexShrink: 1,
+    flexShrink: 1
   },
   details: {
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   detailsContainer: {
     paddingVertical: 10,
-    paddingHorizontal: 5,
+    paddingHorizontal: 5
   },
   image: {
     resizeMode: 'contain',
     height: 180,
-    width: '100%',
+    width: '100%'
   },
   location: {
     color: colors.primary,
-    opacity: 0.3,
+    opacity: 0.3
   },
   text: {
     fontSize: 16,
     textTransform: 'uppercase',
-    marginBottom: 4,
+    marginBottom: 4
   },
   price: {
-    color: colors.primary,
+    color: colors.primary
   },
   addOrder: {
     backgroundColor: colors.greyV2,
     borderRadius: 15,
     paddingHorizontal: 5,
-    paddingVertical: 2,
-    textAlign: 'center',
-  },
+    paddingVertical: 2.5,
+    marginVertical: 2.5,
+    textAlign: 'center'
+  }
 });
 
 export default AppCard;
