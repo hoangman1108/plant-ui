@@ -142,7 +142,10 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
           <View style={{ paddingHorizontal: 22 }}>
             {cartItems.map((cartItem: any) => {
               return (
-                <View key={cartItem.productId} style={{ marginBottom: 16 }}>
+                <View
+                  key={cartItem.productId}
+                  style={{ marginBottom: 16, marginTop: 6 }}
+                >
                   <View style={{ marginBottom: 8 }}>
                     <TouchableOpacity
                       onPress={() =>
@@ -162,7 +165,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                   <View style={{ marginBottom: 3 }}>
                     <AppText>{cartItem.name}</AppText>
                   </View>
-                  <View style={{ marginBottom: 3 }}>
+                  <View style={{ marginBottom: 6 }}>
                     <AppText style={{ fontWeight: 'bold' }}>
                       {cartItem.qty} x {numberFormat(cartItem.price)} ={' '}
                       {numberFormat(cartItem.qty * cartItem.price)} VNĐ
@@ -175,8 +178,11 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                       justifyContent: 'space-between',
                       padding: 5,
                       backgroundColor: '#rgba(210, 235, 245, 0.5)',
-                      borderColor: 'c0e3f2',
-                      marginBottom: 16
+                      borderColor: '#adacac',
+                      marginBottom: 16,
+                      borderRadius: 5,
+                      borderStyle: 'solid',
+                      borderWidth: 0.3
                     }}
                   >
                     <View>

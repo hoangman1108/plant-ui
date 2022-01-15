@@ -64,7 +64,7 @@ const AddressScreen: React.FC<Props> = ({ navigation }) => {
         showProgress={false}
         title='Địa chỉ giao hàng'
         message='Địa chỉ nhà không được để trống!'
-        closeOnTouchOutside={true}
+        closeOnTouchOutside={false}
         closeOnHardwareBackPress={false}
         showConfirmButton={true}
         confirmText='OK'
