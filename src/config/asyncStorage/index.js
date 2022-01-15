@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 // Storing string value
 const storeDataString = async (key, value) => {
   try {

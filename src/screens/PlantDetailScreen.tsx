@@ -50,10 +50,10 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
 
   return (
     <Screen>
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 30 }}>
         <HeaderTab navigation={navigation}>Chi tiết sản phẩm</HeaderTab>
       </View>
-      <View>
+      <View style={{ marginTop: 30 }}>
         <SliderBox
           images={thumnails}
           sliderBoxHeight={300}
@@ -274,14 +274,18 @@ const styles = StyleSheet.create({
   },
   contentBox: {
     flexDirection: 'column',
-    border: `1px solid ${colors.grey}`,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: colors.grey,
     padding: 10,
     marginTop: 10
   },
   contentBoxV2: {
     flexDirection: 'column',
-    border: `1px solid ${colors.grey}`,
-    borderTopWidth: '0px',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderTopWidth: 0,
+    borderColor: colors.grey,
     paddingHorizontal: 20,
     paddingVertical: 10
   }

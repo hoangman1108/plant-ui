@@ -5,6 +5,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { cartReducer } from '../reducers/cartReducers';
 import data from '../config/data';
 
+import {
+  getDataStr,
+  getDataObj,
+  storeDataString,
+  storeDataObj
+} from '../config/asyncStorage';
+
 const rootReducer = combineReducers({
   cartReducer: cartReducer
 });
@@ -48,35 +55,50 @@ const cartDataTest = [
   }
 ];
 
-localStorage.setItem('cartItems', JSON.stringify(cartDataTest));
-const cartItemsLocalStorage = localStorage.getItem('cartItems')
-  ? JSON.parse(localStorage.getItem('cartItems'))
-  : [];
+//localStorage.setItem('cartItems', JSON.stringify(cartDataTest));
+// const cartItemsLocalStorage = localStorage.getItem('cartItems')
+// ? JSON.parse(localStorage.getItem('cartItems'))
+// : [];
+
+(async () => await storeDataObj('cartItems', cartDataTest))();
+
+let cartItemsLocalStorage = [];
+getDataObj('cartItems')
+  .then((data) => {
+    console.log('cartItemsLocalStorage 1: ', data);
+    cartItemsLocalStorage = data;
+  })
+  .catch((e) => console.log(e));
+
+console.log('cartItemsLocalStorage 2: ', cartItemsLocalStorage);
 
 // const shippingAddressTest = '232 Hoà Hưng, P.13, Q.10, TP.HCM';
 // localStorage.setItem('shippingAddress', shippingAddressTest);
 
-const shippingAdressLocalStorage = localStorage.getItem('shippingAddress')
-  ? localStorage.getItem('shippingAddress')
-  : '';
+let shippingAdressLocalStorage = '';
+getDataStr('shippingAddress')
+  .then((data) => (shippingAdressLocalStorage = data !== null ? data : ''))
+  .catch((e) => console.log(e));
 
-localStorage.setItem('isAdmin', 'true');
+(async () => {
+  await storeDataString('isAdmin', 'true');
+})();
 
-const initialState = {
+console.log('shippingAdressLocalStorage: ', shippingAdressLocalStorage);
+
+let initialState = {};
+
+initialState = {
   cartReducer: {
     cartItems: cartItemsLocalStorage,
     shippingAddress: shippingAdressLocalStorage
   }
-
-  // userLogin: { userInfo: userInfoLocalStorage },
 };
 
 const middleware = [thunk];
 
-const store = createStore(
+export default createStore(
   rootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
-
-export default store;

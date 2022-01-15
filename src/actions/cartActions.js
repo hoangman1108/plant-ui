@@ -1,10 +1,16 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS
 } from '../constants/cartConstants';
 import data from '../config/data';
+
+import {
+  getDataStr,
+  getDataObj,
+  storeDataString,
+  storeDataObj
+} from '../config/asyncStorage';
 
 export const addToCart = (product, qty) => async (dispatch, getState) => {
   const productId = product.id;
@@ -19,10 +25,11 @@ export const addToCart = (product, qty) => async (dispatch, getState) => {
   });
 
   // after save card info to redux state -> save card info down to localStorage
-  localStorage.setItem(
-    'cartItems',
-    JSON.stringify(getState().cartReducer.cartItems)
-  );
+  // localStorage.setItem(
+  //   'cartItems',
+  //   JSON.stringify(getState().cartReducer.cartItems)
+  // );
+  storeDataObj('cartItems', getState().cartReducer.cartItems);
 };
 
 export const removeFromCart = (productId) => (dispatch, getState) => {
@@ -35,10 +42,11 @@ export const removeFromCart = (productId) => (dispatch, getState) => {
   });
 
   // update localStorage after delete a product in cart
-  localStorage.setItem(
-    'cartItems',
-    JSON.stringify(getState().cartReducer.cartItems)
-  );
+  // localStorage.setItem(
+  //   'cartItems',
+  //   JSON.stringify(getState().cartReducer.cartItems)
+  // );
+  storeDataObj('cartItems', getState().cartReducer.cartItems);
 };
 
 export const saveShippingAddress = (data) => (dispatch) => {
@@ -49,7 +57,8 @@ export const saveShippingAddress = (data) => (dispatch) => {
     }
   });
 
-  localStorage.setItem('shippingAddress', data);
+  // localStorage.setItem('shippingAddress', data);
+  storeDataString('shippingAddress', data);
 };
 
 // export const savePaymentMethod = (paymentMethod) => (dispatch) => {

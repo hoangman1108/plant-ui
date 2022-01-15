@@ -159,24 +159,30 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   contentBox: {
     flexDirection: 'column',
-    border: `1px solid ${colors.grey}`,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: colors.grey,
     padding: 10,
     marginTop: 10
   },
   contentBoxV2: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    border: `1px solid ${colors.grey}`,
-    borderTopWidth: '0px',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderTopWidth: 0,
+    borderColor: colors.grey,
     paddingHorizontal: 10,
     paddingVertical: 10,
     marginBottom: 20
   },
   contenBoxV3: {
     flexDirection: 'row',
-    border: `1px solid ${colors.grey}`,
-    borderTopWidth: '0px',
-    borderBottomWidth: '0px',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+    borderColor: colors.grey,
     paddingHorizontal: 10,
     paddingVertical: 10,
     alignItems: 'center',
