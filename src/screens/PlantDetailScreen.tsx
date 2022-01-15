@@ -92,11 +92,11 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
             count={5}
             reviews={[]}
             defaultRating={rating}
-            size={24}
+            size={23}
           />
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <AppText style={styles.fontSmall}>99 Đánh giá</AppText>
-            <AppText style={[styles.fontSmall, { paddingLeft: 15 }]}>
+            <AppText style={styles.fontSmall}> 99 Đánh giá</AppText>
+            <AppText style={[styles.fontSmall, { paddingLeft: 12 }]}>
               Xem tất cả
               <FontAwesome
                 style={{ paddingLeft: 5 }}
@@ -112,7 +112,14 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
           Giá: {numberFormat(price)} VNĐ
         </AppText>
         <AppText style={styles.lineHorizontal}></AppText>
-        <AppText style={styles.fontNormal}>Mô tả: {description}</AppText>
+        <AppText
+          style={[
+            styles.fontNormal,
+            { fontSize: 19, textAlign: 'justify', marginVertical: 1 }
+          ]}
+        >
+          Mô tả: {description}
+        </AppText>
         <View style={[styles.contentBox, { marginTop: 28 }]}>
           <View
             style={{
