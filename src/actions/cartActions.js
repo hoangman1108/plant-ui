@@ -1,7 +1,8 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
-  CART_SAVE_SHIPPING_ADDRESS,
+  CART_SAVE_SHIPPING_ADDRESS
 } from '../constants/cartConstants';
 import data from '../config/data';
 
@@ -14,7 +15,7 @@ export const addToCart = (product, qty) => async (dispatch, getState) => {
   // dispatch action (with payload info) to cartReducers => push itemAdd to state.cart.cartItems
   dispatch({
     type: CART_ADD_ITEM,
-    payload: itemAdd,
+    payload: itemAdd
   });
 
   // after save card info to redux state -> save card info down to localStorage
@@ -29,8 +30,8 @@ export const removeFromCart = (productId) => (dispatch, getState) => {
   dispatch({
     type: CART_REMOVE_ITEM,
     payload: {
-      productId,
-    },
+      productId
+    }
   });
 
   // update localStorage after delete a product in cart
@@ -44,8 +45,8 @@ export const saveShippingAddress = (data) => (dispatch) => {
   dispatch({
     type: CART_SAVE_SHIPPING_ADDRESS,
     payload: {
-      data,
-    },
+      data
+    }
   });
 
   localStorage.setItem('shippingAddress', data);
