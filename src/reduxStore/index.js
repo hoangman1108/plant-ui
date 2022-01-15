@@ -60,6 +60,8 @@ const shippingAdressLocalStorage = localStorage.getItem('shippingAddress')
   ? localStorage.getItem('shippingAddress')
   : '';
 
+localStorage.setItem('isAdmin', 'true');
+
 const initialState = {
   cartReducer: {
     cartItems: cartItemsLocalStorage,
