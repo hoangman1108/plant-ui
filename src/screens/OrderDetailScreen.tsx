@@ -5,7 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   View,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Divider } from 'react-native-elements';
@@ -33,7 +33,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'center'
           }}
         >
           <FontAwesome
@@ -48,7 +48,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
               fontSize: 28,
               fontWeight: 'bold',
               textTransform: 'uppercase',
-              textAlign: 'center',
+              textAlign: 'center'
             }}
           >
             ĐƠN HÀNG
@@ -100,7 +100,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
                   <AppText>{cartItem.name}</AppText>
                 </View>
                 <View style={{ marginBottom: 3 }}>
-                  <AppText>
+                  <AppText style={{ fontWeight: 'bold' }}>
                     {cartItem.qty} x {numberFormat(cartItem.price)} ={' '}
                     {numberFormat(cartItem.qty * cartItem.price)} VNĐ
                   </AppText>
@@ -116,7 +116,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
               style={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                paddingBottom: 5,
+                paddingBottom: 5
               }}
             >
               <AppText style={[styles.fontNormal, { fontWeight: 'bold' }]}>
@@ -126,7 +126,7 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
           </View>
           <View style={styles.contenBoxV3}>
             <AppText>Sản Phẩm</AppText>
-            <AppText>
+            <AppText style={{ fontWeight: 'bold' }}>
               {numberFormat(
                 cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)
               )}{' '}
@@ -135,15 +135,15 @@ const OrderDetailScreen: React.FC<Props> = ({ navigation }) => {
           </View>
           <View style={styles.contenBoxV3}>
             <AppText>Phí Ship</AppText>
-            <AppText>0.00 VNĐ</AppText>
+            <AppText style={{ fontWeight: 'bold' }}>0.00 VNĐ</AppText>
           </View>
           <View style={styles.contenBoxV3}>
             <AppText>Thuế</AppText>
-            <AppText>0.00 VNĐ</AppText>
+            <AppText style={{ fontWeight: 'bold' }}>0.00 VNĐ</AppText>
           </View>
           <View style={styles.contentBoxV2}>
             <AppText>Tổng Cộng</AppText>
-            <AppText>
+            <AppText style={{ fontWeight: 'bold' }}>
               {numberFormat(
                 cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)
               )}{' '}
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     border: `1px solid ${colors.grey}`,
     padding: 10,
-    marginTop: 10,
+    marginTop: 10
   },
   contentBoxV2: {
     flexDirection: 'row',
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     borderTopWidth: '0px',
     paddingHorizontal: 10,
     paddingVertical: 10,
-    marginBottom: 20,
+    marginBottom: 20
   },
   contenBoxV3: {
     flexDirection: 'row',
@@ -180,14 +180,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   fontSmall: {
-    fontSize: 18,
+    fontSize: 18
   },
   fontNormal: {
-    fontSize: 22,
-  },
+    fontSize: 22
+  }
 });
 
 export default OrderDetailScreen;

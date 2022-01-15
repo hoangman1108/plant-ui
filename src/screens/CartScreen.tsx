@@ -81,7 +81,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
           left: 0,
           bottom: 0,
           right: 0,
-          height: '100%!important',
+          height: '100%!important'
         }}
         onCancelPressed={() => {
           hideAlert();
@@ -96,7 +96,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'center'
           }}
         >
           <FontAwesome
@@ -111,7 +111,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               fontSize: 28,
               fontWeight: 'bold',
               textTransform: 'uppercase',
-              textAlign: 'center',
+              textAlign: 'center'
             }}
           >
             GIỎ HÀNG
@@ -130,7 +130,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                 borderColor: 'c0e3f2',
                 height: 60,
                 justifyContent: 'center',
-                alignItems: 'center',
+                alignItems: 'center'
               }}
             >
               <AppText style={{ color: '#10516c', fontWeight: 'bold' }}>
@@ -154,7 +154,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                         style={{
                           width: '100%',
                           height: 220,
-                          borderRadius: 20,
+                          borderRadius: 20
                         }}
                       />
                     </TouchableOpacity>
@@ -163,7 +163,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                     <AppText>{cartItem.name}</AppText>
                   </View>
                   <View style={{ marginBottom: 3 }}>
-                    <AppText>
+                    <AppText style={{ fontWeight: 'bold' }}>
                       {cartItem.qty} x {numberFormat(cartItem.price)} ={' '}
                       {numberFormat(cartItem.qty * cartItem.price)} VNĐ
                     </AppText>
@@ -176,7 +176,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                       padding: 5,
                       backgroundColor: '#rgba(210, 235, 245, 0.5)',
                       borderColor: 'c0e3f2',
-                      marginBottom: 16,
+                      marginBottom: 16
                     }}
                   >
                     <View>
@@ -220,14 +220,19 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               style={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                paddingBottom: 5,
+                paddingBottom: 5
               }}
             >
               <AppText style={styles.fontNormal}>
                 Tổng Cộng ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 Sản Phẩm
               </AppText>
-              <AppText style={[styles.fontNormal, { marginTop: 2 }]}>
+              <AppText
+                style={[
+                  styles.fontNormal,
+                  { marginTop: 2, fontWeight: 'bold' }
+                ]}
+              >
                 {numberFormat(
                   cartItems.reduce(
                     (acc, item) => acc + item.qty * item.price,
@@ -259,7 +264,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                   paddingHorizontal: 20,
                   paddingVertical: 16,
                   borderRadius: 30,
-                  textAlign: 'center',
+                  textAlign: 'center'
                 }}
               >
                 TIẾN HÀNH ĐẶT HÀNG
@@ -274,27 +279,27 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: 'while',
+    backgroundColor: 'while'
   },
   contentBox: {
     flexDirection: 'column',
     border: `1px solid ${colors.grey}`,
     padding: 10,
-    marginTop: 10,
+    marginTop: 10
   },
   contentBoxV2: {
     flexDirection: 'column',
     border: `1px solid ${colors.grey}`,
     borderTopWidth: '0px',
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 10
   },
   fontSmall: {
-    fontSize: 18,
+    fontSize: 18
   },
   fontNormal: {
-    fontSize: 22,
-  },
+    fontSize: 22
+  }
 });
 
 export default CartScreen;
