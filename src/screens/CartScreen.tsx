@@ -157,6 +157,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
                         style={{
                           width: '100%',
                           height: 220,
+                          resizeMode: 'cover',
                           borderRadius: 20
                         }}
                       />
