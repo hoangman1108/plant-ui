@@ -32,6 +32,7 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
   const [productsData, setProductsData] = useState(data);
   const categoriesData = categories;
   const [defaultCate, setDefaultCate] = useState(1);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const onSelectedCategory = (id) => {
     setDefaultCate(id);
@@ -50,7 +51,7 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
   };
 
   // Get userInfo from localStorage
-  const isAdminLogin: string = localStorage.getItem('isAdmin') || null;
+  const isAdminLogin = 'true';
 
   console.log('Home Screen - isAdminLogin: ', isAdminLogin);
 
@@ -167,8 +168,7 @@ const styles = StyleSheet.create({
   },
   headerSearch: {
     flex: 1,
-    backgroundColor: colors.white,
-    outlineColor: colors.white
+    backgroundColor: colors.white
   },
   headerSearchContainer: {
     alignItems: 'center',

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TextInput,
   View,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -71,7 +71,7 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
           style={{ paddingHorizontal: 10, paddingVertical: 10 }}
           horizontal={true}
           data={categoriesData}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => {
             const { id, name } = item;
             return (
@@ -81,16 +81,16 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
                     styles.itemCategory,
                     {
                       backgroundColor:
-                        defaultCate == id ? colors.active : colors.white,
-                    },
+                        defaultCate == id ? colors.active : colors.white
+                    }
                   ]}
                 >
                   <AppText
                     style={[
                       styles.contentCategory,
                       {
-                        color: defaultCate == id ? colors.white : colors.dark,
-                      },
+                        color: defaultCate == id ? colors.white : colors.dark
+                      }
                     ]}
                   >
                     {name}
@@ -105,7 +105,7 @@ const PlantsScreen: React.FC<Props> = ({ navigation }) => {
           data={productsData}
           numColumns={2}
           contentContainerStyle={{ width: '100%' }}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => {
             const { name, location, price, image } = item;
             return (
@@ -134,12 +134,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: -10,
     marginTop: 30,
-    padding: 20,
+    padding: 20
   },
   contentTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    opacity: 0.7,
+    opacity: 0.7
   },
   header: {
     backgroundColor: colors.primary,
@@ -147,24 +147,23 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 25,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    zIndex: 1,
+    zIndex: 1
   },
   headerConntainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
     // marginTop: 10
   },
   headerIcon: {
     height: 60,
     width: 60,
     borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
+    borderBottomRightRadius: 25
   },
   headerSearch: {
     flex: 1,
-    backgroundColor: colors.white,
-    outlineColor: colors.white,
+    backgroundColor: colors.white
   },
   headerSearchContainer: {
     alignItems: 'center',
@@ -177,36 +176,36 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    width: '100%',
+    width: '100%'
   },
   headerTitle: {
     color: colors.light,
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   itemCategory: {
     backgroundColor: colors.white,
     borderRadius: 15,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    marginRight: 15,
+    marginRight: 15
   },
   contentCategory: {
-    fontSize: 16,
+    fontSize: 16
   },
   gridProducts: {
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
     paddingHorizontal: 10,
-    width: '100vw',
+    width: '100vw'
   },
   gridProductItem: {
-    flex: 1,
+    flex: 1
   },
   active: {
-    backgroundColor: colors.active,
-  },
+    backgroundColor: colors.active
+  }
 });
 
 export default PlantsScreen;

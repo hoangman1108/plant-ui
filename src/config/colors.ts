@@ -3,8 +3,8 @@ export default {
   primary: '#2e8b57',
   light: '#f8f4f4',
   medium: '#9f9f9f',
-  white: '#fff',
+  white: '#ffffff',
   active: 'rgb(46, 139, 87)',
-  grey: 'rgb(128 128 128 / 68%)',
+  grey: '#808080',
   greyV2: '#80808054'
 };

@@ -26,6 +26,7 @@ import numberFormat from '../util/formatNumberMoney';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Props {
   navigation: StackNavigationProp<AppNavigatorProps, 'PlantDetail'>;
@@ -37,16 +38,16 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
   const { name, rating, location, price, image, description, thumnails } =
     route.params.item;
 
-  useEffect(() => {
-    document
-      .querySelector(
-        "div[dir=auto][class='css-text-901oao r-fontWeight-vw2c0b r-margin-jgcjvd']"
-      )
-      ?.remove();
-    document.querySelector(
-      "select[data-focusable=true][data-testid='web_picker']"
-    ).style.height = '30px';
-  }, []);
+  // useEffect(() => {
+  //   document
+  //     .querySelector(
+  //       "div[dir=auto][class='css-text-901oao r-fontWeight-vw2c0b r-margin-jgcjvd']"
+  //     )
+  //     ?.remove();
+  //   document.querySelector(
+  //     "select[data-focusable=true][data-testid='web_picker']"
+  //   ).style.height = '30px';
+  // }, []);
 
   return (
     <Screen>
@@ -90,21 +91,42 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
         >
           <AirbnbRating
             count={5}
-            reviews={[]}
+            showRating={false}
             defaultRating={rating}
             size={23}
+            ratingContainerStyle={{ margin: 0 }}
           />
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View
+            style={{
+              flex: 2,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between'
+            }}
+          >
             <AppText style={styles.fontSmall}> 99 Đánh giá</AppText>
-            <AppText style={[styles.fontSmall, { paddingLeft: 12 }]}>
-              Xem tất cả
-              <FontAwesome
-                style={{ paddingLeft: 5 }}
-                name='chevron-right'
-                size={15}
-                color='rgba(0,0,0,.69)'
-              />
-            </AppText>
+            <TouchableOpacity>
+              <AppText
+                style={[
+                  styles.fontSmall,
+                  {
+                    paddingLeft: 12,
+                    backgroundColor: '#eeeeee',
+                    borderColor: '#555555',
+                    borderRadius: 4,
+                    borderStyle: 'solid'
+                  }
+                ]}
+              >
+                Xem tất cả
+                <FontAwesome
+                  style={{ paddingLeft: 5 }}
+                  name='chevron-right'
+                  size={15}
+                  color='rgba(0,0,0,.69)'
+                />
+              </AppText>
+            </TouchableOpacity>
           </View>
         </View>
         <AppText style={styles.lineHorizontal}></AppText>
@@ -151,18 +173,28 @@ const PlantDetailScreen: React.FC<Props> = ({ navigation, route }) => {
             }}
           >
             <AppText style={styles.fontNormal}>Chọn số lượng:</AppText>
-            <RNPickerSelect
-              onValueChange={(value) => console.log('')}
-              items={[
-                { label: '2', value: '2' },
-                { label: '3', value: '3' },
-                { label: '4', value: '4' }
-              ]}
-              placeholder={{
-                label: '1',
-                value: 1
-              }}
-            />
+            <TouchableOpacity>
+              <AppText
+                style={[
+                  styles.fontSmall,
+                  {
+                    paddingLeft: 12,
+                    backgroundColor: '#eeeeee',
+                    borderColor: '#555555',
+                    borderRadius: 4,
+                    borderStyle: 'solid'
+                  }
+                ]}
+              >
+                1
+                <FontAwesome
+                  style={{ padding: 16 }}
+                  name='chevron-down'
+                  size={15}
+                  color='rgba(0,0,0,.69)'
+                />
+              </AppText>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={[styles.contentBoxV2, { marginBottom: 28 }]}>

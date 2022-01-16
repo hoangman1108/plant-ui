@@ -285,7 +285,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: 'while'
+    backgroundColor: '#fff'
   },
   contentBox: {
     flexDirection: 'column',
