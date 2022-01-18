@@ -168,7 +168,8 @@ const styles = StyleSheet.create({
   },
   headerSearch: {
     flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    outlineStyle: 'none'
   },
   headerSearchContainer: {
     alignItems: 'center',
