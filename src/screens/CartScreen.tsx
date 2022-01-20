@@ -134,7 +134,7 @@ const CartScreen: React.FC<Props> = ({ navigation }) => {
               }}
             >
               <AppText style={{ color: '#10516c', fontWeight: 'bold' }}>
-                Your cart is emty
+                Vui lòng đưa sản phẩm vào giỏ hàng
               </AppText>
             </View>
           </View>
